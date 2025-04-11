@@ -18,8 +18,7 @@
   <!-- Tela de início -->
   <div class="tela-inicial" id="telaInicial">
     <button class="btn2 subtitle bold hugeT mediumBS dark-redBC solid" id="btnIniciar">Jogar</button>
-    
-    <p class="bold subtitle mediumT">pressione F11 para uma melhor experiencia</p>
+    <p class="bold subtitle mediumT">Pressione F11 para uma melhor experiencia</p>
   </div>
   
   <!-- Menu principal -->

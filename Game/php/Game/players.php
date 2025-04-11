@@ -11,17 +11,17 @@
 </head>
 <body>
     
-    <form action="">
+    <form action="entrar.php" method="get">
 
         <label for="player" class="bold subtitle mediumT">N° de players em cada equipe</label>
 
         <div class="input-div">
 
-            <button id="btnLeft" onclick="menos(event)" class="bold subtitle hugeT"><</button>
+            <button id="btnLeft" onclick="menos(event)" class="bold subtitle hugeT noSelect"><</button>
 
             <input class="title bold dark-yellow Sred" type="number" name="player" id="player" readonly>
 
-            <button id="btnRight" onclick="mais(event)" class="bold subtitle hugeT">></button>
+            <button id="btnRight" onclick="mais(event)" class="bold subtitle hugeT noSelect">></button>
 
         </div>
 

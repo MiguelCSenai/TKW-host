@@ -30,9 +30,9 @@ function menos(event) {
 function mais(event) {
     event.preventDefault();
     let value = parseInt(input.value);
-    if (value < 3) {
+    if (value < 4) {
         input.value = value + 1;
-        if (input.value < 3) {
+        if (input.value < 4) {
 
             btnLeft.style.opacity = 1;
             btnRight.style.opacity = 1;

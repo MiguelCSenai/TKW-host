@@ -79,3 +79,59 @@ button{
     margin-top: 20px;
     
 }
+
+.main-container{
+
+    color: white;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.qr{
+
+    border-radius: 15px;
+    border: 5px rgb(255, 171, 62) solid;
+    width: 350px;
+    height: 350px;
+
+}
+
+.container{
+
+    border: 5px rgb(145, 93, 25) solid;
+    padding: 20px 50px;
+    background: rgba(133, 133, 133, 0.167);
+    border-radius: 10px;
+    text-align: center;
+    gap: 30px;
+
+}
+
+.mini-container{
+
+    margin-top: 40px;
+    background-color: rgb(206, 11, 11);
+    text-align: center;
+    padding: 5px 15px;
+    min-width: 200px;
+    max-width: 400px;
+    min-height: 5vh;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
+.containerQr{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+}
