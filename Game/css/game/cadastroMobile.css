@@ -1,19 +1,32 @@
-* {
+html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f2f2f2;
+
+    background: url("../../resources/img/ficha.png");
+    background-size: cover;
     color: #333;
+    padding: 5vh 2vw;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+
 }
 
 .container {
+    width: 100vw;
     max-width: 400px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
 }
 
 h1 {
@@ -25,31 +38,89 @@ h1 {
 form {
     display: flex;
     flex-direction: column;
+    height: 30vh;
+    padding-inline: 20px;
+    justify-content: space-around;
+    margin-top: 20vh;
 }
 
 label {
-    margin-bottom: 8px;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
 }
 
 input {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
+    background: transparent;
+    border: none;
+    border-bottom: #333 2px solid;
+    padding: 10px 0 0 0;
+    text-align: center;
+    font-size: 2rem;
+    width: 100%;
+    height: 5vh;
+    transition: 0.3s ease-in-out;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 2px solid #d43024;
+}
+
+.input-group{
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
 }
 
 button {
     padding: 12px;
-    background-color: #007bff;
+    background-color: #cf3538;
     color: white;
-    border: none;
+    border: rgb(167, 11, 11) 2px solid;
     border-radius: 6px;
     font-size: 1rem;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #9b282a;
+}
+
+.hidden{
+
+    display: none;
+
+}.slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.slider-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#classe-img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border: 2px solid #333;
+    border-radius: 10px;
+}
+
+#classe-display {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 5px 10px;
 }
