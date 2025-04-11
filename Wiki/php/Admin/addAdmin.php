@@ -1,7 +1,6 @@
-<?php
-include "../mysqlconecta.php";
+<?php session_start();
 
-session_start();
+include "../mysqlconecta.php";
 
 if (!isset($_SESSION['admin'])) {
     header("Location: login.php");

@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +22,7 @@
             <li><a href="../Wiki/wiki.php">Como Jogar</a></li>
             <li><a onclick="ativarTransicao()">História</a></li>
             <li><a href="../../../Game/php/MainMenu/main.php">Jogar</a></li>
-            <li><a href="../Admin/menu.php"><?php session_start(); if (isset($_SESSION['admin'])) { echo $_SESSION['admin']; }else{ echo "Administrador"; } ?></a></li>
+            <li><a href="../Admin/menu.php"><?php if (isset($_SESSION['admin'])) { echo $_SESSION['admin']; }else{ echo "Administrador"; } ?></a></li>
 
         </ul>
     </nav>
