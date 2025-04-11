@@ -13,7 +13,7 @@
 
     <div class="container" id="form-nome">
         <h1 class="red bold titleV SdarkRed">Ficha de prisioneiro</h1>
-        <form id="player-form">
+        <form>
             <div class="input-group">
 
                 <label class="textV bigT" for="nickname">Nome:</label>
@@ -26,7 +26,7 @@
     </div>
 
     <div class="container hidden" id="form-classe">
-        <form id="player-form">
+        <form>
             <div class="input-group">
                 <label class="textV bigT" for="classe">Classe do criminoso:</label>
             </div>
@@ -52,60 +52,23 @@
 
 
     <div class="container hidden" id="form-time">
-        <form id="player-form">
+        <form class="reino">
+            
+            <label class="textV bigT bold" for="reino">Reino de origem:</label>
             <div class="input-group">
 
-                <label class="textV bigT" for="nickname">Nome:</label>
-                <input type="text" id="nickname" name="nickname" required>
+                <input type="button" value="1">
+                <input type="button" value="2">
+
 
             </div>
-
-            <button type="submit">Continuar</button>
         </form>
     </div>
 
-    <script>
-        document.getElementById('player-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            document.getElementById('form-nome').classList.add('hidden');
-            document.getElementById('form-classe').classList.remove('hidden');
-        });
-        const classes = [
-            { nome: "Ladrão", imagem: "img/ladrao.png" },
-            { nome: "Assassino", imagem: "img/assassino.png" },
-            { nome: "Hacker", imagem: "img/hacker.png" },
-            { nome: "Mercenário", imagem: "img/mercenario.png" }
-        ];
-
-        let currentIndex = 0;
-
-        const display = document.getElementById("classe-display");
-        const img = document.getElementById("classe-img");
-        const hiddenInput = document.getElementById("classe");
-
-        function updateClasse() {
-            const current = classes[currentIndex];
-            display.textContent = current.nome;
-            img.src = current.imagem;
-            hiddenInput.value = current.nome;
-        }
-
-        document.getElementById("prev-btn").addEventListener("click", () => {
-            currentIndex = (currentIndex - 1 + classes.length) % classes.length;
-            updateClasse();
-        });
-
-        document.getElementById("next-btn").addEventListener("click", () => {
-            currentIndex = (currentIndex + 1) % classes.length;
-            updateClasse();
-        });
-        updateClasse();
-</script>
+    <script src="../../js/game/cadastro.js"></script>
 
 
-        
-    </script>
+
 
 </body>
 </html>

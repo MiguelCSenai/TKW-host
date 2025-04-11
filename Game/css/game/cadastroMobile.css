@@ -9,7 +9,6 @@ body {
     background: url("../../resources/img/ficha.png");
     background-size: cover;
     color: #333;
-    padding: 5vh 2vw;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -23,9 +22,11 @@ body {
     width: 100vw;
     max-width: 400px;
     margin: 0 auto;
+    padding: 5vh 2vw;
     display: flex;
     flex-direction: column;
     height: 100vh;
+    box-sizing: border-box;
 
 }
 
@@ -77,7 +78,13 @@ input:focus {
 
 }
 
-button {
+.reino .input-group{
+
+    gap: 30px;
+
+}
+
+button, input[type="button"] {
     padding: 12px;
     background-color: #cf3538;
     color: white;
@@ -87,7 +94,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+button:hover, input[type="button"]:hover {
     background-color: #9b282a;
 }
 
