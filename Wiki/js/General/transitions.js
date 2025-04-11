@@ -17,7 +17,7 @@ function ativarTransicao() {
                 document.getElementById("overlay").classList.add("fadeOut");
                 setTimeout(() => {
                     
-                    window.location.href = "../../php/Lore/lore.php";
+                    window.location.href = "/Wiki/php/Lore/lore.php";
             
                 }, 680);
     
