@@ -42,7 +42,6 @@
                 <button type="button" id="next-btn">▶</button>
             </div>
 
-            <!-- Campo oculto que envia o valor da classe -->
             <input type="hidden" id="classe" name="classe" value="Ladrão">
 
             <button type="submit">Continuar</button>
@@ -57,18 +56,26 @@
             <label class="textV bigT bold" for="reino">Reino de origem:</label>
             <div class="input-group">
 
-                <input type="button" value="1">
-                <input type="button" value="2">
+                <input type="button" onclick="salvar(1)" value="Reino 1">
+                <input type="button" onclick="salvar(2)" value="Reino 2">
 
 
             </div>
         </form>
     </div>
+    <div class="container hidden" id="form-enviar">
+        <form action="enviarJogador.php">
+
+            <input type="hidden" id="nickP" name="nickP">
+            <input type="hidden" id="classeP" name="classeP">
+            <input type="hidden" id="reinoP" name="reinoP">
+
+            <button class="btn2">Convocar Prisioneiro</button>
+            
+        </form>
+    </div>
 
     <script src="../../js/game/cadastro.js"></script>
-
-
-
 
 </body>
 </html>

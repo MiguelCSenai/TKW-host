@@ -90,12 +90,21 @@ button, input[type="button"] {
     color: white;
     border: rgb(167, 11, 11) 2px solid;
     border-radius: 6px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button:hover, input[type="button"]:hover {
     background-color: #9b282a;
+}
+
+input[type="button"]{
+
+    height: 10vh;
+
 }
 
 .hidden{

@@ -2,13 +2,28 @@ document.getElementById('form-nome').querySelector('form').addEventListener('sub
     e.preventDefault();
     document.getElementById('form-nome').classList.add('hidden');
     document.getElementById('form-classe').classList.remove('hidden');
+    nickname = document.getElementById('nickname').value;
 });
 
 document.getElementById('form-classe').querySelector('form').addEventListener('submit', function(e) {
     e.preventDefault();
     document.getElementById('form-classe').classList.add('hidden');
     document.getElementById('form-time').classList.remove('hidden');
+    classe = document.getElementById('classe').value;
+
 });
+
+function salvar(v){
+
+    document.getElementById('form-time').classList.add('hidden');
+    document.getElementById('form-enviar').classList.remove('hidden');
+    reino = v;
+
+    document.getElementById('nickP').value = nickname;
+    document.getElementById('classeP').value = classe;
+    document.getElementById('reinoP').value = reino;
+
+}
 
 const classes = [
     { nome: "Armadilheiro", imagem: "../../resources/img/armadilheiro.png" },
