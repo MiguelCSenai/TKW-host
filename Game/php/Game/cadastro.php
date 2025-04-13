@@ -64,7 +64,7 @@
         </form>
     </div>
     <div class="container hidden" id="form-enviar">
-        <form action="enviarJogador.php">
+        <form action="enviarJogador.php" method="post">
 
             <input type="hidden" id="nickP" name="nickP">
             <input type="hidden" id="classeP" name="classeP">
