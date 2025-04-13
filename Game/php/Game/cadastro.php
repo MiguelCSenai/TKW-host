@@ -35,7 +35,7 @@
                 <button type="button" id="prev-btn">◀</button>
                 
                 <div class="slider-content">
-                    <img id="classe-img" src="img/ladrao.png" alt="Classe" />
+                    <img id="classe-img" alt="Classe" />
                     <div id="classe-display">Ladrão</div>
                 </div>
 

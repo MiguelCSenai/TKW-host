@@ -2,7 +2,8 @@
 
     session_start();
 
-
+    if (isset($_SESSION['classe']) && isset($_SESSION['nome']) && isset($_SESSION['reino'])) {
+        
 
 ?>
 
@@ -24,8 +25,14 @@
 
         <p class="subtitle bold mediumT"><?php echo $_SESSION['nome'] ?></p>
 
-        <p class="subtitle bold">Prisioneiro do reino <?php echo $_SESSION['reino'] ?></p>
+        <p class="subtitle bold">Prisioneiro do reino <?php echo $_SESSION['reino'] ?></p>  
 
     </div>
 
 </body>
+
+<?php }else{
+
+        header("Location: ../cadastro.php");
+
+} ?>
