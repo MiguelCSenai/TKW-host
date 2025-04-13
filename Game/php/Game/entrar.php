@@ -46,7 +46,7 @@ include "../mysqlconecta.php";
         for ($i = 0; $i < $play_num; $i++) {
             if (isset($reino1[$i])) {
                 $player = $reino1[$i];
-                echo "<div class='mini-container text'>{$player['pla_nome']} - {$player['pla_classe']}</div>";
+                echo "<div class='mini-container text'><span class='bold'>{$player['pla_nome']}</span> | {$player['pla_classe']}</div>";
             } else {
                 echo "<div class='mini-container text'>Jogador " . ($i + 1) . "</div>";
             }
