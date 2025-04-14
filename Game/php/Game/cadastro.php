@@ -2,7 +2,7 @@
 
     session_start();
 
-    $_SESSION['ses_id'];
+    $_SESSION['ses_id'] = $_GET['ses_id'];
 
 ?>
 
