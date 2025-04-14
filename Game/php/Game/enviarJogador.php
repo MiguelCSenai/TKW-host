@@ -13,10 +13,12 @@
     $nome = $_POST['nickP'];
     $reino = $_POST['reinoP'];
     
+    $ses_id = $_SESSION['ses_id'];
+    
     $stats = $atributos[$classe];
     
-    $query = "INSERT INTO players (pla_nome, pla_classe, pla_reino, pla_HP, pla_STR, pla_AGI, pla_INT)
-              VALUES ('$nome', '$classe', '$reino', {$stats['HP']}, {$stats['STR']}, {$stats['AGI']}, {$stats['INT']})";
+    $query = "INSERT INTO players (pla_nome, pla_classe, pla_reino, pla_HP, pla_STR, pla_AGI, pla_INT, pla_ses_id)
+              VALUES ('$nome', '$classe', '$reino', {$stats['HP']}, {$stats['STR']}, {$stats['AGI']}, {$stats['INT']}, '$ses_id')";
     
 
     if (mysqli_query($conexao, $query)) {

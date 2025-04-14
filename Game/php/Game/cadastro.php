@@ -1,3 +1,11 @@
+<?php
+
+    session_start();
+
+    $_SESSION['ses_id'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
