@@ -1,9 +1,11 @@
-<?php
+<?php session_start();
 $play_num = isset($_GET["player"]) ? (int)$_GET["player"] : header("Location: players.php");
 
 
 
 $_SESSION['play_num'] = $play_num;
+
+$ses_id = $_SESSION['ses_id'];
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +25,15 @@ $_SESSION['play_num'] = $play_num;
 include "../mysqlconecta.php";
 
 
-    $query = "SELECT pla_nome, pla_classe, pla_reino FROM players ORDER BY pla_reino, pla_nome";
+    if(isset($_SESSION['ses_id'])){
+        
+        $query = "SELECT pla_nome, pla_classe, pla_reino FROM players WHERE pla_ses_id = $ses_id ORDER BY pla_reino, pla_nome";
+
+    }else{
+
+        $query = "SELECT pla_nome, pla_classe, pla_reino FROM players ORDER BY pla_reino, pla_nome";
+    
+    }
     $result = mysqli_query($conexao, $query);
 
     $reino1 = [];
@@ -55,6 +65,7 @@ include "../mysqlconecta.php";
     </div>
 
     <div class="containerQr">
+        <p class="subtile bigT bold">#<?php echo $ses_id; ?></p>
         <img class="qr" src="qr.php" alt="QR Code">
         <h2 class="subtitle">Quando todos os jogadores estiverem cadastrados aperte F5</h2>
     </div>
