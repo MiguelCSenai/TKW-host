@@ -26,7 +26,7 @@
     </div>
 
     <div class="container hidden" id="form-classe">
-        <form>
+        <form class="classe">
             <div class="input-group">
                 <label class="textV bigT" for="classe">Classe do criminoso:</label>
             </div>

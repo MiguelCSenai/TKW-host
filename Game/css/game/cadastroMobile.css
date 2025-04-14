@@ -42,7 +42,7 @@ form {
     height: 30vh;
     padding-inline: 20px;
     justify-content: space-around;
-    margin-top: 20vh;
+    margin-top: 15vh;
 }
 
 label {
@@ -111,7 +111,17 @@ button:active, input[type="button"]:active{
 
 input[type="button"]{
 
-    height: 10vh;
+    height: 15vh;
+    max-height: 50px;
+    display: flex;
+    align-items: center;
+    padding-block: 10px;
+
+}
+
+.classe{
+
+    margin-top: 0;
 
 }
 
