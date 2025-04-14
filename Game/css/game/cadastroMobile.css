@@ -52,7 +52,6 @@ label {
     align-items: center;
     color: black;
 }
-
 input {
     background: transparent;
     border: none;
@@ -95,10 +94,19 @@ button, input[type="button"] {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: url('../../resources/img/cursor.png') 24 5, auto;
+    
 }
 
 button:hover, input[type="button"]:hover {
     background-color: #9b282a;
+    cursor: url('../../resources/img/cursor.png') 24 5, auto;
+}
+
+button:active, input[type="button"]:active{
+
+    cursor: url('../../resources/img/cursor-click.png') 24 5, auto;
+    
 }
 
 input[type="button"]{

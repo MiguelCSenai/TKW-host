@@ -26,6 +26,7 @@
         $_SESSION['nome'] = $nome;
         $_SESSION['classe'] = $classe;
         $_SESSION['reino'] = $reino;
+        $_SESSION['max_hp'] = $stats['HP'];
         header("Location: ./Jogabilidade/playerIndex.php");
         exit();
     } else {

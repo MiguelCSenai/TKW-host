@@ -12,6 +12,7 @@ body {
     padding: 20px;
     margin: 0 auto;
     display: flex;
+    align-items: center;
     flex-direction: column;
     box-sizing: border-box;
     width: 100vw;
@@ -35,6 +36,8 @@ body {
 
     aspect-ratio: 1/1;
     width: 33vw;
+
+    max-width: 200px;
     border: 3px black solid;
     border-radius: 10px;
     display: flex;
@@ -47,12 +50,13 @@ body {
 .stats{
 
     width: 100%;
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: left;
     height: 30vh;
-    margin-top: 50px;
+    margin-top: 15vh;
 
 }
 
@@ -62,7 +66,7 @@ body {
     justify-content: space-between;
 }
 .stat-bar {
-    width: 85%;
+    width: 95%;
     height: 25px;
     background-color: #4f4f4f;
     border-radius: 5px;
@@ -93,6 +97,7 @@ strong{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 40px;
 
 }
 

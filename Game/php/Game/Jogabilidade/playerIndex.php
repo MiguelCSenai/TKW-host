@@ -56,7 +56,7 @@ if (isset($_SESSION['classe']) && isset($_SESSION['nome']) && isset($_SESSION['r
 
         foreach ($stats as $key => $atributo) {
             $valor = $player[$key];
-            $max = 30;
+            $max = ($key === "pla_HP") ? $_SESSION['max_hp'] : 30;
             $porcentagem = min(100, ($valor / $max) * 100);
             echo "
             <div class='stat'>
@@ -68,6 +68,7 @@ if (isset($_SESSION['classe']) && isset($_SESSION['nome']) && isset($_SESSION['r
             </div>
             ";
         }
+        
         ?>
     </div>
 
