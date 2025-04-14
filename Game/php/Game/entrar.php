@@ -73,7 +73,7 @@ include "../mysqlconecta.php";
     </div>
 
     <div class="containerQr">
-        <a href="sair.php" class="btn1 dark-redBC redB yellow">Sair</a>
+        <a href="sair.php" class="btn1 dark-redBC redB white text bold mediumT">Sair</a>
         <p class="subtile bigT bold">#<?php echo $ses_id; ?></p>
         <img class="qr" src="qr.php" alt="QR Code">
         <h2 class="subtitle">Quando todos os jogadores estiverem cadastrados aperte F5</h2>
