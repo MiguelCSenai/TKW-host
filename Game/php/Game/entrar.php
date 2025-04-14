@@ -5,12 +5,20 @@ $play_num = isset($_GET["player"]) ? (int)$_GET["player"] : header("Location: pl
 
 $_SESSION['play_num'] = $play_num;
 
+if (!isset($_SESSION['ses_id'])) {
+    include "../mysqlconecta.php";
+    mysqli_query($conexao, "INSERT INTO sessoes () VALUES ();");
+    $_SESSION['ses_id'] = mysqli_insert_id($conexao);
+}
 $ses_id = $_SESSION['ses_id'];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<audio id="background" loop>
+    <source src="../../resources/sfx/players.mp3" type="audio/mpeg">
+</audio>
+<head>=
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/game/players.css">
@@ -89,3 +97,15 @@ include "../mysqlconecta.php";
 
 </body>
 </html>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const audio = document.getElementById("background");
+
+    audio.play().catch(() => {
+        document.addEventListener('click', () => {
+            audio.play();
+        }, { once: true });
+    });
+});
+</script>
