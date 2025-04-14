@@ -23,8 +23,6 @@
 
     if (mysqli_query($conexao, $query)) {
 
-        session_start();
-
         $_SESSION['nome'] = $nome;
         $_SESSION['classe'] = $classe;
         $_SESSION['reino'] = $reino;
