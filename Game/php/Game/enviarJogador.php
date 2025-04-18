@@ -42,6 +42,50 @@ if (mysqli_query($conexao, $query)) {
     header("Location: ./Jogabilidade/playerIndex.php");
     exit();
 } else {
-    echo "<p>Erro ao cadastrar jogador: " . mysqli_error($conexao) . "</p>";
+    echo "<p class='title bold bigT'>Erro ao cadastrar jogador: " . mysqli_error($conexao) . "</p>";
 }
+
 ?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Equipe Cheia</title>
+    <link rel="stylesheet" href="../../css/game/cadastroMobile.css">
+    <link rel="stylesheet" href="../../css/general/fonts.css">
+    <link rel="stylesheet" href="../../css/general/elements.css">
+    <link rel="stylesheet" href="../../css/general/attributes.css">
+</head>
+
+<body>
+    
+
+<?php
+
+if ($limite_time >= $limite) {
+    echo "<p style='color:red;'>O time {$reino} já está cheio! (máximo de {$limite} jogadores)</p>";
+    exit();
+}
+
+$query = "INSERT INTO players (pla_nome, pla_classe, pla_reino, pla_HP, pla_STR, pla_AGI, pla_INT, pla_ses_id)
+          VALUES ('$nome', '$classe', '$reino', {$stats['HP']}, {$stats['STR']}, {$stats['AGI']}, {$stats['INT']}, '$ses_id')";
+
+if (mysqli_query($conexao, $query)) {
+    $_SESSION['nome'] = $nome;
+    $_SESSION['classe'] = $classe;
+    $_SESSION['reino'] = $reino;
+    $_SESSION['max_hp'] = $stats['HP'];
+    header("Location: ./Jogabilidade/playerIndex.php");
+    exit();
+} else {
+    echo "<p class='title bold bigT'>Erro ao cadastrar jogador: " . mysqli_error($conexao) . "</p>";
+}
+
+?>
+
+
+</body>
+
+</html>
