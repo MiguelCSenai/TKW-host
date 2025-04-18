@@ -1,4 +1,7 @@
 <?php session_start();
+
+include "../mysqlconecta.php";
+
 $play_num = isset($_GET["player"]) ? (int)$_GET["player"] : header("Location: players.php");
 
 
@@ -6,11 +9,19 @@ $play_num = isset($_GET["player"]) ? (int)$_GET["player"] : header("Location: pl
 $_SESSION['play_num'] = $play_num;
 
 if (!isset($_SESSION['ses_id'])) {
-    include "../mysqlconecta.php";
-    mysqli_query($conexao, "INSERT INTO sessoes () VALUES ();");
-    $_SESSION['ses_id'] = mysqli_insert_id($conexao);
+
+    $play_num = (int) $_SESSION['play_num'];
+
+    mysqli_query($conexao, "INSERT INTO sessoes (ses_limite) VALUES ($play_num);");
+    $ses_id = mysqli_insert_id($conexao);
+
+    $_SESSION['ses_id'] = $ses_id;
+
+}else{
+
+    $ses_id = $_SESSION['ses_id'];
+
 }
-$ses_id = $_SESSION['ses_id'];
 ?>
 
 <!DOCTYPE html>
@@ -29,9 +40,6 @@ $ses_id = $_SESSION['ses_id'];
 </head>
 <body>
 <?php
-
-include "../mysqlconecta.php";
-
 
     if(isset($_SESSION['ses_id'])){
         
