@@ -65,7 +65,7 @@ if (mysqli_query($conexao, $query)) {
 <?php
 
 if ($limite_time >= $limite) {
-    echo "<p style='color:red;'>O time {$reino} já está cheio! (máximo de {$limite} jogadores)</p>";
+    echo "<p class='title bold bigT' style='color:red;'>O time {$reino} já está cheio! (máximo de {$limite} jogadores)</p>";
     exit();
 }
 
