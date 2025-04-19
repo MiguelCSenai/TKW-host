@@ -82,9 +82,24 @@ if (!isset($_SESSION['ses_id'])) {
 
     <div class="containerQr">
         <a href="sair.php" class="btn1 dark-redBC redB white text bold mediumT">Sair</a>
-        <p class="subtile bigT bold">#<?php echo $ses_id; ?></p>
+        <p class="subtile bigT bold">Sessão #<?php echo $ses_id; ?></p>
         <img class="qr" src="qr.php" alt="QR Code">
-        <h2 class="subtitle">Quando todos os jogadores estiverem cadastrados aperte F5</h2>
+        <?php
+        
+            $query_contagem = "SELECT COUNT(*) AS total FROM players WHERE pla_ses_id = $ses_id";
+            $result_contagem = mysqli_query($conexao, $query_contagem);
+            $contagem_players = mysqli_fetch_assoc($result_contagem);
+            $players = $contagem_players['total'];
+
+            if ($players == ($play_num * 2)) {
+                echo "<a href='Jogabilidade/lore.php' class='btn2 redB dark-redBC white bold mediumT title'>Iniciar Sessão</a>";
+            }else{
+
+                echo "<h2 class='subtitle'>Quando todos os jogadores estiverem cadastrados aperte F5</h2>";
+
+            }
+        
+        ?>
     </div>
 
     <div class="container">

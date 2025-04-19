@@ -44,7 +44,7 @@
                 
                 <div class="slider-content">
                     <img id="classe-img" alt="Classe" />
-                    <div id="classe-display">Ladrão</div>
+                    <div id="classe-display"></div>
                 </div>
 
                 <button type="button" id="next-btn">▶</button>

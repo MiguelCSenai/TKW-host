@@ -96,6 +96,7 @@ button{
     border: 5px rgb(255, 171, 62) solid;
     width: 350px;
     height: 350px;
+    margin-bottom: 10vh;
 
 }
 
@@ -132,7 +133,7 @@ button{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    height: 85vh;
 
 }
 
@@ -145,5 +146,11 @@ button{
 span{
 
     margin-right: 5px;
+
+}
+
+.btn2{
+
+    width: auto;
 
 }
