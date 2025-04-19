@@ -1,3 +1,9 @@
+<?php
+
+    $dialogo = isset($_GET['dialogo']) ? $_GET['dialogo'] : 'intro';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +28,8 @@
 
                 <div class="container-personagem">
 
-                    <img src="../../../resources/img/personagens/rei.png" alt="">
-                    <h1>Rei</h1>
+                    <img src="" alt="personagem">
+                    <h1></h1>
 
                 </div>
 
@@ -39,6 +45,6 @@
 </html>
 
 <script>
-        const nomeDoDialogo = "<?php echo "intro" ?>";
+        const nomeDoDialogo = "<?php echo $dialogo; ?>";
 </script>
 <script src="../../../js/game/jogabilidade/chats.js"></script>
