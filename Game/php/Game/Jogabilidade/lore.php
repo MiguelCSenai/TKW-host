@@ -12,18 +12,24 @@
 </head>
 <body>
     
-    <div class="container-dialogo">
+    
 
-        <div class="text-box fade-in">
+    <div class="transition"></div>
+    
+        <div class="container-dialogo">
 
-            <div class="container-personagem">
+            <div class="text-box fade-in">
 
-                <img src="../../../resources/img/personagens/rei.png" alt="">
-                <h1>Rei</h1>
+                <div class="container-personagem">
+
+                    <img src="../../../resources/img/personagens/rei.png" alt="">
+                    <h1>Rei</h1>
+
+                </div>
+
+                <p></p>
 
             </div>
-
-            <p>É us guri hihihiihihihih</p>
 
         </div>
 
@@ -31,3 +37,5 @@
 
 </body>
 </html>
+
+<script src="../../../js/game/jogabilidade/chats.js"></script>
