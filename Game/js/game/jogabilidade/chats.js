@@ -2,16 +2,18 @@
 let dialogos = [];
 let index = 0;
 
-fetch('../../../resources/chats/intro.json')
+fetch(`../../../resources/chats/${nomeDoDialogo}.json`)
     .then(response => response.json())
     .then(data => {
         dialogos = data;
         mostrarFala();
     });
 
+
 function mostrarFala() {
     if (index >= dialogos.length) {
         console.log("Fim do diálogo");
+        document.querySelector('.transition').style.opacity = 1;
         return;
     }
 
@@ -22,8 +24,7 @@ function mostrarFala() {
 }
 
 setTimeout(() => {
-    document.querySelector('.transition').style.opacity = 0; // Remove a tela preta
-    document.querySelector('.container-dialogo').style.opacity = 1; // Exibe a caixa de diálogo
+    document.querySelector('.transition').style.opacity = 0;
 }, 2000);
 
 document.body.addEventListener('click', () => {

@@ -38,4 +38,7 @@
 </body>
 </html>
 
+<script>
+        const nomeDoDialogo = "<?php echo "intro" ?>";
+</script>
 <script src="../../../js/game/jogabilidade/chats.js"></script>
