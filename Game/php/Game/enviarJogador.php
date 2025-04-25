@@ -54,6 +54,9 @@ $query = "INSERT INTO players (pla_nome, pla_classe, pla_reino, pla_HP, pla_STR,
           VALUES ('$nome', '$classe', '$reino', {$stats['HP']}, {$stats['STR']}, {$stats['AGI']}, {$stats['INT']}, '$ses_id')";
 
 if (mysqli_query($conexao, $query)) {
+
+    session_unset();
+    
     $_SESSION['nome'] = $nome;
     $_SESSION['classe'] = $classe;
     $_SESSION['reino'] = $reino;
