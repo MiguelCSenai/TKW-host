@@ -29,7 +29,7 @@
             <li><a href="../../Catalogo/catalogo.php">Catálogo</a></li>
             <li><a href="../../Wiki/wiki.php">Como Jogar</a></li>
             <li><a onclick="ativarTransicao()">História</a></li>
-            <li><a href="../../../../TheKingsWill.Game/php/MainMenu/main.php">Jogar</a></li>
+            <li><a href="../../../../Game/php/MainMenu/main.php">Jogar</a></li>
             <li><a href="../menu.php"><?php if (isset($_SESSION['admin'])) { echo $_SESSION['admin']; }else{ echo "Administrador"; } ?></a></li>
 
         </ul>
@@ -44,6 +44,7 @@
 
             <a href="addArma.php" class="items redBC solid mediumBS black bold text smallT"><img src="../../../resources/settings.png">Cadastrar arma</a>
             <a href="addEfeito.php" class="items redBC solid mediumBS black bold text smallT"><img src="../../../resources/settings.png">Cadastrar efeito</a>
+            <a href="addItem.php" class="items redBC solid mediumBS black bold text smallT"><img src="../../../resources/settings.png">Cadastrar item</a>
 
         </div>
         

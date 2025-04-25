@@ -43,7 +43,7 @@
             
             switch ($row["wpn_natureza"]) {
                 case 'Base':
-                    $classe = "grayB dark-grayBC black";
+                    $classe = "grayB dark-grayBC white";
                     $classeImg = "base";
                     break;
                 case 'Sangue':
@@ -51,7 +51,7 @@
                     $classeImg = "sangue";
                     break;
                 case 'Vísceras':
-                    $classe = "light-purpleB purpleBC black";
+                    $classe = "light-purpleB purpleBC white";
                     $classeImg = "visceras";
                     break;
                 case 'Ossos':
@@ -59,7 +59,7 @@
                     $classeImg = "ossos";
                     break;
                 case 'Consciência':
-                    $classe = "light-blueB blueBC white";
+                    $classe = "light-blueB blueBC darkBlue";
                     $classeImg = "consciencia";
                     break;
             }
@@ -105,6 +105,46 @@
 
 
     </div>
+
+    <h1 class="red subtitle mediumT SdarkRed">Itens</h1>
+<div class="container-armas">
+
+<?php
+$query = "SELECT * FROM items ORDER BY itm_tipo, itm_nome";
+$result = $conexao->query($query);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+
+        switch ($row["itm_efeito"]) {
+            case 'Cura':
+                $classe = "light-greenB greenBC green";
+                break;
+            case 'Dano':
+                $classe = "grayB dark-grayBC white";
+                break;
+            default:
+                $classe = "grayB grayBC black";
+                $classeImg = "default";
+        }
+
+        echo "<div class='" . $classe . " solid mediumBS arma text'>";
+        echo "<div class='icon'><img class='" . $classeImg . "' src='" . $row["itm_img"] . "' alt='" . $row["itm_nome"] . "'>";
+        echo "<h2>" . $row["itm_nome"] . "</h2></div>";
+        echo "<div class='content'><div class='stats'>";
+        echo "<p><strong class='subtitle'>Tipo:</strong> " . $row["itm_tipo"] . "</p>";
+        echo "<p><strong class='subtitle'>Efeito:</strong> " . $row["itm_efeito"] . "</p>";
+        echo "<p><strong class='subtitle'>Potencia:</strong> " . $row["itm_potencia"] . "</p>";
+
+
+        echo "</div></div></div>";
+    }
+} else {
+    echo "<p>Nenhum item cadastrado.</p>";
+}
+?>
+</div>
+
 
     <h1 class="red subtitle mediumT SdarkRed">Efeitos</h1>
 <div class="container-efeitos">
