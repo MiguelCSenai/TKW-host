@@ -48,6 +48,9 @@ if (isset($_SESSION['classe']) && isset($_SESSION['nome']) && isset($_SESSION['r
     <div class="icon-button">
         <img src="../../../resources/img/combate.png" alt="Combate" class="icon-img">
     </div>
+    <div class="icon-button">
+        <img src="../../../resources/img/magia.png" alt="Magia" class="icon-img">
+    </div>
 </div>
 
         <p class="subtitle bold">Prisioneiro do reino <?php echo $_SESSION['reino']; ?></p>  
