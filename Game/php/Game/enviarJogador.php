@@ -55,8 +55,6 @@ $query = "INSERT INTO players (pla_nome, pla_classe, pla_reino, pla_HP, pla_STR,
 
 if (mysqli_query($conexao, $query)) {
 
-    session_unset();
-    
     $_SESSION['nome'] = $nome;
     $_SESSION['classe'] = $classe;
     $_SESSION['reino'] = $reino;

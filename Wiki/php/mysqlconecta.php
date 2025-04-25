@@ -1,5 +1,6 @@
 <?php
-$servidor = "mysql.railway.internal:3306";
+//Em produção   $servidor = "mysql.railway.internal:3306";
+$servidor = "hopper.proxy.rlwy.net:29888";
 $usuario = "root";
 $senha = "WNogfHzeWRCTciZYPWXhLdPpsJNDfNiu";
 $bancodados = "railway";
