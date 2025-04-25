@@ -1,42 +1,53 @@
-[
-    {
-        "nome": "Rei",
-        "img": "../../../resources/img/personagens/rei.png",
-        "fala": "Ahhh, chegou aquela época encantadora do ano, não é mesmo, Conselheiro? Quando o mundo se parte ao meio e os gritos ecoam entre os planos. Que delícia de caos!"
-    },
-    {
-        "nome": "Conselheiro",
-        "img": "../../../resources/img/personagens/conselheiro.png",
-        "fala": "De fato, Majestade. O frio já espreita os ossos, os espíritos caminham sem rumo... e nossas tropas, coitadas, virariam pó antes de empunhar uma lança."
-    },
-    {
-        "nome": "Rei",
-        "img": "../../../resources/img/personagens/rei.png",
-        "fala": "Ora, ora, então vamos resolver isso com um pouco de... reciclagem social, que tal? Pegue uns trastes da masmorra. Aqueles que fedem mais à morte do que à vida!"
-    },
-    {
-        "nome": "Conselheiro",
-        "img": "../../../resources/img/personagens/conselheiro.png",
-        "fala": "Hmmm... os condenados da ala norte andam especialmente desesperados ultimamente. Imagino que topariam qualquer coisa por um fiapo de esperança. Que doce ironia."
-    },
-    {
-        "nome": "Rei",
-        "img": "../../../resources/img/personagens/rei.png",
-        "fala": "Perfeito! Digamos que... se retornarem com o tal *Líquido da Vida*, ganham suas míseras liberdades. E se não retornarem... bem... um problema a menos."
-    },
-    {
-        "nome": "Conselheiro",
-        "img": "../../../resources/img/personagens/conselheiro.png",
-        "fala": "Um espetáculo digno das crônicas, Majestade. Mandarei preparar a ‘tropa’ de indigentes para sua jornada gloriosa rumo ao abismo."
-    },
-    {
-        "nome": "Rei",
-        "img": "../../../resources/img/personagens/rei.png",
-        "fala": "Ahahah! Mande-os ao rio Suothrein. Saberão que estão no lugar certo quando o frio cortar até a alma... e virem a velha ponte que só aparece quando o mundo sangra."
-    },
-    {
-        "nome": "Conselheiro",
-        "img": "../../../resources/img/personagens/conselheiro.png",
-        "fala": "Que comece o grande jogo. Que vençam os menos inúteis!"
-    }
-]
+{
+    "proximo": "calabouco",
+    "falas": [
+        {
+            "nome": "Rei",
+            "img": "../../../resources/img/personagens/rei.png",
+            "fala": "Ahhh, chegou aquela época encantadora do ano, não é mesmo, Conselheiro? Quando o mundo se parte ao meio e os gritos ecoam entre os planos. Que delícia de caos!",
+            "background": "../../../resources/img/trono.png"
+        },
+        {
+            "nome": "Conselheiro",
+            "img": "../../../resources/img/personagens/conselheiro.png",
+            "fala": "De fato, Majestade. O frio já espreita os ossos, os espíritos caminham sem rumo... e nossas tropas, coitadas, virariam pó antes de empunhar uma lança.",
+            "background": "../../../resources/img/trono.png"
+        },
+        {
+            "nome": "Rei",
+            "img": "../../../resources/img/personagens/rei.png",
+            "fala": "Ora, ora, então vamos resolver isso com um pouco de... reciclagem social, que tal? Pegue uns trastes da masmorra. Aqueles que fedem mais à morte do que à vida!",
+            "background": "../../../resources/img/trono.png"
+        },
+        {
+            "nome": "Conselheiro",
+            "img": "../../../resources/img/personagens/conselheiro.png",
+            "fala": "Hmmm... os condenados da ala norte andam especialmente desesperados ultimamente. Imagino que topariam qualquer coisa por um fiapo de esperança. Que doce ironia.",
+            "background": "../../../resources/img/trono.png"
+        },
+        {
+            "nome": "Rei",
+            "img": "../../../resources/img/personagens/rei.png",
+            "fala": "Perfeito! Digamos que... se retornarem com o tal *Líquido da Vida*, ganham suas míseras liberdades. E se não retornarem... bem... um problema a menos.",
+            "background": "../../../resources/img/trono.png"
+        },
+        {
+            "nome": "Conselheiro",
+            "img": "../../../resources/img/personagens/conselheiro.png",
+            "fala": "Um espetáculo digno das crônicas, Majestade. Mandarei preparar a ‘tropa’ de indigentes para sua jornada gloriosa rumo ao abismo.",
+            "background": "../../../resources/img/trono.png"
+        },
+        {
+            "nome": "Rei",
+            "img": "../../../resources/img/personagens/rei.png",
+            "fala": "Ahahah! Mande-os ao rio Suothrein. Saberão que estão no lugar certo quando o frio cortar até a alma... e virem a velha ponte que só aparece quando o mundo sangra.",
+            "background": "../../../resources/img/trono.png"
+        },
+        {
+            "nome": "Conselheiro",
+            "img": "../../../resources/img/personagens/conselheiro.png",
+            "fala": "Que comece o grande jogo. Que vençam os menos inúteis!",
+            "background": "../../../resources/img/trono.png"
+        }
+    ]
+}

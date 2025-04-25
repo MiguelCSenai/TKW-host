@@ -1,0 +1,40 @@
+{
+    "falas": [
+        {
+            "nome": "Conselheiro",
+            "img": "../../../resources/img/personagens/conselheiro.png",
+            "fala": "Ah... o aroma inconfundível da desesperança e suor frio. Que bela recepção, meus caros condenados.",
+            "background": "../../../resources/img/calabouco.png"
+        },
+        {
+            "nome": "Conselheiro",
+            "img": "../../../resources/img/personagens/conselheiro.png",
+            "fala": "Tenho uma proposta que até suas mentes atrofiadas entenderão: liberdade... ou morte. Bem direto, não?",
+            "background": "../../../resources/img/calabouco.png"
+        },
+        {
+            "nome": "Conselheiro",
+            "img": "../../../resources/img/personagens/conselheiro.png",
+            "fala": "Sua adorável missão? Viajar até o fim do mundo — ou quase — e trazer o tal *Líquido da Vida* de volta.",
+            "background": "../../../resources/img/calabouco.png"
+        },
+        {
+            "nome": "Conselheiro",
+            "img": "../../../resources/img/personagens/conselheiro.png",
+            "fala": "O rei, em toda sua misericórdia, decidiu que vocês merecem uma última chance de utilidade. Emocionante, eu sei.",
+            "background": "../../../resources/img/calabouco.png"
+        },
+        {
+            "nome": "Conselheiro",
+            "img": "../../../resources/img/personagens/conselheiro.png",
+            "fala": "Falhar... significará a morte certa. Sucesso? Hm... talvez vivam o suficiente para morrer de velhice neste buraco.",
+            "background": "../../../resources/img/calabouco.png"
+        },
+        {
+            "nome": "Conselheiro",
+            "img": "../../../resources/img/personagens/conselheiro.png",
+            "fala": "Preparem-se. Partem ao cair da noite. Que sorte tenham — se é que merecem tal luxo.",
+            "background": "../../../resources/img/calabouco.png"
+        }
+    ]
+}

@@ -92,7 +92,7 @@ if (!isset($_SESSION['ses_id'])) {
             $players = $contagem_players['total'];
 
             if ($players == ($play_num * 2)) {
-                echo "<a href='Jogabilidade/lore.php' class='btn2 redB dark-redBC white bold mediumT title'>Iniciar Sessão</a>";
+                echo "<a href='Jogabilidade/chat.php?dialogo=intro' class='btn2 redB dark-redBC white bold mediumT title'>Iniciar Sessão</a>";
             }else{
 
                 echo "<h2 class='subtitle'>Quando todos os jogadores estiverem cadastrados aperte F5</h2>";

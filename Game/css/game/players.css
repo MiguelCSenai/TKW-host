@@ -1,6 +1,7 @@
 body{
 
     background: url("../../resources/img/players.png");
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
