@@ -41,6 +41,15 @@ if (isset($_SESSION['classe']) && isset($_SESSION['nome']) && isset($_SESSION['r
                 <div class="xp-text"><?php echo $xp; ?> / <?php echo $xpMax; ?> XP</div>
             </div>
         </div>
+        <div class="button-container">
+    <div class="icon-button">
+        <img src="../../../resources/img/inventario.png" alt="Inventário" class="icon-img">
+    </div>
+    <div class="icon-button">
+        <img src="../../../resources/img/combate.png" alt="Combate" class="icon-img">
+    </div>
+</div>
+
         <p class="subtitle bold">Prisioneiro do reino <?php echo $_SESSION['reino']; ?></p>  
 
     </div>
