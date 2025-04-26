@@ -56,7 +56,7 @@ $result_posicao = mysqli_query($conexao, $query_posicao);
 $row_posicao = mysqli_fetch_assoc($result_posicao);
 $posicao = $row_posicao['total'];
 
-$inicio_y = ($posicao + 1) + 4;
+$inicio_y = ($posicao + 1) + 6;
 $inicio_x = ($reino == 1) ? 1 : 15;
 $inicio_bloco = ($reino == 1) ? 4 : 6;
 
