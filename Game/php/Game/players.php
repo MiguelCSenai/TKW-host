@@ -1,8 +1,8 @@
 <?php session_start();
 
-    if (isset($_SESSION['ses_id'])) {
+    /*if (isset($_SESSION['ses_id'])) {
         header("Location: entrar.php");
-    }
+    }*/     
 
 ?>
 
