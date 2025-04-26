@@ -20,6 +20,7 @@ function mostrarFala() {
                 window.location.href = `chat.php?dialogo=${proximoDialogo}`;
             } else {
                 console.log("Fim da história ou próximo não definido.");
+                window.location.href = 'mapa.php';
             }
         }, 2500);
         return;

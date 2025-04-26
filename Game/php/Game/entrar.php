@@ -43,11 +43,11 @@ if (!isset($_SESSION['ses_id'])) {
 
     if(isset($_SESSION['ses_id'])){
         
-        $query = "SELECT pla_nome, pla_classe, pla_reino FROM players WHERE pla_ses_id = $ses_id ORDER BY pla_reino, pla_nome";
+        $query = "SELECT pla_nome, pla_classe, pla_reino FROM players WHERE pla_ses_id = $ses_id ORDER BY pla_reino, pla_id ";
 
     }else{
 
-        $query = "SELECT pla_nome, pla_classe, pla_reino FROM players ORDER BY pla_reino, pla_nome";
+        header("Location: players.php");
     
     }
     $result = mysqli_query($conexao, $query);

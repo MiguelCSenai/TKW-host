@@ -1,3 +1,11 @@
+<?php session_start();
+
+    if (isset($_SESSION['ses_id'])) {
+        header("Location: entrar.php");
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

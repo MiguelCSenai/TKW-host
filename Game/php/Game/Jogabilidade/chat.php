@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="../../../css/game/settings.css">
     <link rel="stylesheet" href="../../../css/game/elements/components.css">
     <link rel="stylesheet" href="../../../css/game/elements/animations.css">
-    <link rel="stylesheet" href="../../../css/game/screens/trono.css">
 
 </head>
 <body>
