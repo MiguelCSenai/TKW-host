@@ -77,6 +77,7 @@
             <input type="hidden" id="nickP" name="nickP">
             <input type="hidden" id="classeP" name="classeP">
             <input type="hidden" id="reinoP" name="reinoP">
+            <input type="hidden" id="ses_id" name="ses_id" value="<?php echo $_SESSION['ses_id'] ?>">
 
             <button class="btn2">Convocar Prisioneiro</button>
             
