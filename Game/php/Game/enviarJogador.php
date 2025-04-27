@@ -13,7 +13,7 @@ $classe = $_POST['classeP'];
 $nome = $_POST['nickP'];
 $reino = $_POST['reinoP'];
 
-$ses_id = $_GET['ses_id'];
+$ses_id = $_POST['ses_id'];
 $stats = $atributos[$classe];
 
 $query_limite = "SELECT ses_limite FROM sessoes WHERE ses_id = $ses_id";
