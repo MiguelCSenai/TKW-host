@@ -26,7 +26,7 @@
     <h1 class="titleV yellow Sred bold bigT">Menu Principal</h1>
     <div class="menu-items">
 
-      <a href="../Game/players.php" class="subtitle mediumT bold red SdarkRed">Iniciar Jogo</a>
+      <a href="../Game/limite.php" class="subtitle mediumT bold red SdarkRed">Iniciar Jogo</a>
       <a href="../../../Wiki/php/home.php" class="subtitle mediumT bold red SdarkRed">Wiki</a>
       <a class="subtitle mediumT bold red SdarkRed" id="exit">Sair</a>
 

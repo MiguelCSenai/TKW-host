@@ -72,8 +72,8 @@ $coresReino2 = ['#F5A623', '#D0021B', '#F8E71C', '#F56A79']; // quentes
                 <div class="bloco-centro">
     <div class="grid-celulas">
         <?php
-        for ($linha = 1; $linha <= 15; $linha++) {
-            for ($coluna = 1; $coluna <= 15; $coluna++) {
+        for ($linha = 1; $linha <= 20; $linha++) {
+            for ($coluna = 1; $coluna <= 20; $coluna++) {
                 echo "<div class='celula' data-linha='$linha' data-coluna='$coluna'></div>";
             }
         }
@@ -81,11 +81,10 @@ $coresReino2 = ['#F5A623', '#D0021B', '#F8E71C', '#F56A79']; // quentes
     </div>
 
     <?php
-    // Jogadores deste bloco
     foreach ($players as $player) {
         if ($player['pla_bloco'] == $bloco) {
-            $left = ($player['pla_x'] - 1) * (250 / 15); // 250px é o tamanho do bloco-centro
-            $top = ($player['pla_y'] - 1) * (250 / 15);
+            $left = ($player['pla_x'] - 1) * (247 / 20);
+            $top = ($player['pla_y'] - 1) * (247 / 20);
 
             // Definir cor
             $cor = ($player['pla_reino'] == 1) ? $coresReino1[0] : $coresReino2[0];
@@ -97,8 +96,6 @@ $coresReino2 = ['#F5A623', '#D0021B', '#F8E71C', '#F56A79']; // quentes
 </div>
             <?php } ?>
         </div>
-
-        <!-- Lista do Reino 2 -->
         <div class="bloco direita">
             <div class="lista-jogadores">
                 <?php 
