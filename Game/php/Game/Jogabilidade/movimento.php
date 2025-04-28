@@ -8,7 +8,7 @@ $query = "SELECT *
 $result = mysqli_query($conexao, $query);
 $player = mysqli_fetch_assoc($result);
 
-$raio = (int) ($player['pla_AGI'] * 0.75);
+$raio = (int) ($player['pla_AGI'] / 2);
 
 $coresFria = ['#4A90E2','#50E3C2','#9013FE','#B8E986'];
 $coresQuente = ['#F5A623','#D0021B','#F8E71C','#F56A79'];
