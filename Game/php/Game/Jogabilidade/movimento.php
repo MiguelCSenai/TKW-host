@@ -66,23 +66,49 @@ $corPlayer = ($player['pla_reino']==1 ? $coresFria[0] : $coresQuente[0]);
     </div>
   </div>
 
-  <script>
-    (() => {
-      const blocoAtivo = <?= $player['pla_bloco'] - 1 ?>; // 0-based
-      const cols = 3, size = 350;
-      const xIdx = blocoAtivo % cols;
-      const yIdx = Math.floor(blocoAtivo/cols);
-      const view = document.querySelector('.map-view');
-      const grid = document.getElementById('gridCentro');
-
-      // Calcular offset para colocar bloco ativo no centro do viewport
-      const cx = view.clientWidth/2 - size/2;
-      const cy = view.clientHeight/2 - size/2;
-      const tx = cx - xIdx*size;
-      const ty = cy - yIdx*size;
-
-      grid.style.transform = `translate(${tx}px, ${ty}px)`;
-    })();
-  </script>
 </body>
 </html>
+
+<script>
+(() => {
+  const blocoAtivo = <?= $player['pla_bloco'] - 1 ?>;
+  const cols = 3, size = 350;
+  const xIdx = blocoAtivo % cols;
+  const yIdx = Math.floor(blocoAtivo/cols);
+  const view = document.querySelector('.map-view');
+  const grid = document.getElementById('gridCentro');
+
+  const cx = view.clientWidth/2 - size/2;
+  const cy = view.clientHeight/2 - size/2;
+  const tx = cx - xIdx*size;
+  const ty = cy - yIdx*size;
+  grid.style.transform = `translate(${tx}px, ${ty}px)`;
+
+  document.querySelectorAll('.celula-movimento').forEach(celula => {
+    celula.addEventListener('click', async (e) => {
+      const bloco = e.target.dataset.bloco;
+      const linha = e.target.dataset.linha;
+      const coluna = e.target.dataset.coluna;
+
+      if (confirm(`Mover para linha ${linha}, coluna ${coluna}?`)) {
+        try {
+          const response = await fetch('atualiza_movimento.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: `bloco=${bloco}&x=${coluna}&y=${linha}`
+          });
+
+          const result = await response.text();
+          if (result.trim() === 'ok') {
+            location.reload();
+          } else {
+            alert('Erro ao mover: ' + result);
+          }
+        } catch (err) {
+          alert('Erro de conexão.');
+        }
+      }
+    });
+  });
+})();
+</script>
