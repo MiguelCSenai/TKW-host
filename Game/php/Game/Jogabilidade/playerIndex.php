@@ -1,14 +1,12 @@
 <?php
 session_start();
 
-if (isset($_SESSION['classe']) && isset($_SESSION['nome']) && isset($_SESSION['reino'])) {
+if (isset($_SESSION['player_id'])) {
 
     include "../../mysqlconecta.php";
 
-    $nome = $_SESSION['nome'];
-    $sql = "SELECT pla_HP, pla_STR, pla_AGI, pla_INT, pla_lvl, pla_xp FROM players WHERE pla_nome = ?";
-    $nome = $_SESSION['nome'];
-    $sql = "SELECT * FROM players WHERE pla_nome = '$nome'";
+    $player_id = $_SESSION['player_id'];
+    $sql = "SELECT * FROM players WHERE pla_id = {$player_id}";
     $result = mysqli_query($conexao, $sql);
     $player = mysqli_fetch_assoc($result);
 ?>
@@ -19,14 +17,14 @@ if (isset($_SESSION['classe']) && isset($_SESSION['nome']) && isset($_SESSION['r
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ficha de Personagem</title>
-    <link rel="stylesheet" href="../../../css/game/mobile.css">
+    <link rel="stylesheet" href="../../../css/game/ficha.css">
     <link rel="stylesheet" href="../../../css/general/fonts.css">
     <link rel="stylesheet" href="../../../css/general/attributes.css">
 </head>
 <body>
 
     <div class="container-personagem">
-        <div class="img"><?php echo $_SESSION['classe']; ?>
+        <div class="img">
             <div class="level-container"><?php echo $player['pla_lvl']; ?></div>
         </div>
         <p class="subtitle bold mediumT"><?php echo $_SESSION['nome']; ?></p>
@@ -41,21 +39,25 @@ if (isset($_SESSION['classe']) && isset($_SESSION['nome']) && isset($_SESSION['r
                 <div class="xp-text"><?php echo $xp; ?> / <?php echo $xpMax; ?> XP</div>
             </div>
         </div>
-        <div class="button-container">
-    <div class="icon-button">
-        <img src="../../../resources/img/inventario.png" alt="Inventário" class="icon-img">
-    </div>
-    <div class="icon-button">
-        <img src="../../../resources/img/combate.png" alt="Combate" class="icon-img">
-    </div>
-    <div class="icon-button">
-        <img src="../../../resources/img/magia.png" alt="Magia" class="icon-img">
-    </div>
-</div>
 
-        <p class="subtitle bold">Prisioneiro do reino <?php echo $_SESSION['reino']; ?></p>  
+        <p class="subtitle bold">Prisioneiro do reino <?php echo $player['pla_reino']; ?></p>  
 
     </div>
+
+    <div class="button-container">
+            <div class="icon-button" id="inventario">
+                <img src="../../../resources/img/inventario.png" alt="Inventário" class="icon-img">
+            </div>
+            <div class="icon-button" id="combate">
+                <img src="../../../resources/img/combate.png" alt="Combate" class="icon-img">
+            </div>
+            <div class="icon-button" id="magia">
+                <img src="../../../resources/img/magia.png" alt="Magia" class="icon-img">
+            </div>
+            <div class="icon-button" id="movimento">
+                <img src="../../../resources/img/movimento.png" alt="Magia" class="icon-img">
+            </div>
+        </div>
 
     <div class="stats">
         <?php
@@ -93,3 +95,32 @@ if (isset($_SESSION['classe']) && isset($_SESSION['nome']) && isset($_SESSION['r
     exit;
 }
 ?>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Adiciona ouvintes de clique para cada botão
+    const buttons = document.querySelectorAll('.icon-button');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            const buttonId = this.id;
+            switch (buttonId) {
+                case 'inventario':
+                    window.location.href = 'inventario.php';
+                    break;
+                case 'combate':
+                    window.location.href = 'combate.php';
+                    break;
+                case 'magia':
+                    window.location.href = 'magia.php';
+                    break;
+                case 'movimento':
+                    window.location.href = 'movimento.php';
+                    break;
+            }
+        });
+    });
+});
+
+</script>

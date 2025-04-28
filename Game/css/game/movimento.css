@@ -1,0 +1,98 @@
+body{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('../../resources/img/ficha.png');
+
+}
+
+.container-mapa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.linha-mapa {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+}
+
+.bloco {
+  width: 250px;
+  height: 250px;
+  box-sizing: border-box;
+  border: 3px solid black;
+  background-color: rgba(173, 156, 112, 0.452);
+
+}
+
+.bloco.esquerda,
+.bloco.direita {
+  flex-shrink: 0;
+}
+
+.grid-centro {
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    grid-template-rows: repeat(3, 250px);
+    gap: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    will-change: transform;
+}
+  
+
+  .bloco-centro {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: rgba(173,156,112,0.45);
+    border: 3px solid #000;
+    overflow: hidden;
+}
+
+.grid-celulas {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    width: 100%; height: 100%;
+}
+
+.celula {
+    box-sizing: border-box;
+    border: 1px solid rgba(0,0,0,0.4);
+}
+
+.celula-movimento {
+    background-color: rgba(0,255,0,0.2);
+  }
+
+.player-icon {
+    position: absolute;
+    width: calc(250px / 20 - 2px);
+    height: calc(250px / 20 - 2px);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    pointer-events: all;
+    cursor: pointer;
+}
+
+
+.map-view {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: visible;
+    touch-action: none;
+}

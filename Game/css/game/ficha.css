@@ -13,6 +13,7 @@ body {
     margin: 0 auto;
     display: flex;
     align-items: center;
+    justify-content: space-around;
     flex-direction: column;
     box-sizing: border-box;
     width: 100vw;
@@ -20,9 +21,14 @@ body {
 
 }
 
+p{
+
+    margin-block: 0;
+
+}
+
 .container-personagem{
 
-    height: 40vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -41,9 +47,10 @@ body {
     border: 3px black solid;
     border-radius: 10px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: end;
+    align-items: end;
     font-weight: bold;
+    box-sizing: border-box;
 
 }
 
@@ -56,7 +63,6 @@ body {
     justify-content: space-around;
     align-items: left;
     height: 30vh;
-    margin-top: 15vh;
 
 }
 
@@ -102,9 +108,9 @@ strong{
 }
 
 .level-container {
-    position: absolute;
-    top: 18vh;
-    right: 28vw;
+    top: 2.5vh;
+    left: 2.5vh;
+    position: relative;
     background: gold;
     border-radius: 50%;
     width: 35px;
@@ -155,12 +161,8 @@ strong{
 }
 
 .button-container {
-    position: absolute;
-    top: 10px;
-    right: 10px;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    gap: 3vw;
 }
 
 .icon-button {

@@ -65,12 +65,9 @@ $query = "INSERT INTO players (pla_nome, pla_classe, pla_reino, pla_HP, pla_STR,
           VALUES ('$nome', '$classe', '$reino', {$stats['HP']}, {$stats['STR']}, {$stats['AGI']}, {$stats['INT']}, '$ses_id', '$inicio_x', '$inicio_y', '$inicio_bloco')";
 
 if (mysqli_query($conexao, $query)) {
-
-    $_SESSION['nome'] = $nome;
-    $_SESSION['classe'] = $classe;
-    $_SESSION['reino'] = $reino;
-    $_SESSION['max_hp'] = $stats['HP'];
-    echo "<script>window.location.href = './Jogabilidade/playerIndex.php';</script>";
+    $player_id = mysqli_insert_id($conexao);
+    $_SESSION['player_id'] = $player_id;
+    header("Location: Jogabilidade/playerIndex.php");
     exit();
 } else {
     echo "<p class='title bold bigT'>Erro ao cadastrar jogador: " . mysqli_error($conexao) . "</p>";
