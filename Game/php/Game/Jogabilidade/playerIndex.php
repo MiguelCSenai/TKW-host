@@ -1,14 +1,20 @@
 <?php
 session_start();
 
+
 if (isset($_SESSION['player_id'])) {
-
+    
     include "../../mysqlconecta.php";
-
+    
     $player_id = $_SESSION['player_id'];
     $sql = "SELECT * FROM players WHERE pla_id = {$player_id}";
     $result = mysqli_query($conexao, $sql);
     $player = mysqli_fetch_assoc($result);
+
+    if ($_SESSION['setup']) {
+        $_SESSION['max_hp'] = $player['pla_HP'];
+        $_SESSION['setup'] = false;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +33,7 @@ if (isset($_SESSION['player_id'])) {
         <div class="img">
             <div class="level-container"><?php echo $player['pla_lvl']; ?></div>
         </div>
-        <p class="subtitle bold mediumT"><?php echo $_SESSION['nome']; ?></p>
+        <p class="subtitle bold mediumT"><?php echo $player['pla_nome']; ?></p>
         <div class="xp-container">
             <?php
                 $xp = $player['pla_xp'];
@@ -70,7 +76,7 @@ if (isset($_SESSION['player_id'])) {
 
         foreach ($stats as $key => $atributo) {
             $valor = $player[$key];
-            $max = ($key === "pla_HP") ? $_SESSION['max_hp'] : 30;
+            $max = ($key === "pla_HP") && isset($_SESSION) ? $_SESSION['max_hp'] : 30;
             $porcentagem = min(100, ($valor / $max) * 100);
             echo "
             <div class='stat'>

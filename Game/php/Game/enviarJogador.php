@@ -67,6 +67,7 @@ $query = "INSERT INTO players (pla_nome, pla_classe, pla_reino, pla_HP, pla_STR,
 if (mysqli_query($conexao, $query)) {
     $player_id = mysqli_insert_id($conexao);
     $_SESSION['player_id'] = $player_id;
+    $_SESSION['setup'] = true;
     echo "<script>window.location.href = './Jogabilidade/playerIndex.php';</script>";
     exit();
 } else {
