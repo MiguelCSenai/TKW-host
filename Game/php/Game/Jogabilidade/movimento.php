@@ -25,8 +25,8 @@ $corPlayer = ($player['pla_reino']==1 ? $coresFria[0] : $coresQuente[0]);
 
     .player-icon {
       position: absolute;
-      width: calc(250px/20 - 2px);
-      height: calc(250px/20 - 2px);
+      width: calc(350px/20 - 2px);
+      height: calc(350px/20 - 2px);
       border-radius: 50%;
       background-color: <?= $corPlayer ?>;
       pointer-events: none;
@@ -56,8 +56,8 @@ $corPlayer = ($player['pla_reino']==1 ? $coresFria[0] : $coresQuente[0]);
             endfor; ?>
           </div>
           <?php if($b == $player['pla_bloco']):
-            $l = ($player['pla_x']-1)*(252/20);
-            $t = ($player['pla_y']-1)*(252/20);
+            $l = ($player['pla_x']-1)*(352/20);
+            $t = ($player['pla_y']-1)*(352/20);
           ?>
             <div class="player-icon" style="left:<?=$l?>px; top:<?=$t?>px;"></div>
           <?php endif; ?>
@@ -69,7 +69,7 @@ $corPlayer = ($player['pla_reino']==1 ? $coresFria[0] : $coresQuente[0]);
   <script>
     (() => {
       const blocoAtivo = <?= $player['pla_bloco'] - 1 ?>; // 0-based
-      const cols = 3, size = 250;
+      const cols = 3, size = 350;
       const xIdx = blocoAtivo % cols;
       const yIdx = Math.floor(blocoAtivo/cols);
       const view = document.querySelector('.map-view');
