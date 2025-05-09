@@ -14,13 +14,24 @@ if ($result && mysqli_num_rows($result) > 0) {
     }
 }
 
-// Separar os jogadores por reino
 $reino1 = array_filter($players, function($p) { return $p['pla_reino'] == 1; });
 $reino2 = array_filter($players, function($p) { return $p['pla_reino'] == 2; });
 
-// Cores para cada reino
 $coresReino1 = ['#4A90E2', '#50E3C2', '#9013FE', '#B8E986']; // frias
 $coresReino2 = ['#F5A623', '#D0021B', '#F8E71C', '#F56A79']; // quentes
+
+$coresJogadores = [];
+$i = 0;
+foreach ($reino1 as $p) {
+    $coresJogadores[$p['pla_nome']] = $coresReino1[$i % count($coresReino1)];
+    $i++;
+}
+$i = 0;
+foreach ($reino2 as $p) {
+    $coresJogadores[$p['pla_nome']] = $coresReino2[$i % count($coresReino2)];
+    $i++;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +64,6 @@ $coresReino2 = ['#F5A623', '#D0021B', '#F8E71C', '#F56A79']; // quentes
 
 <div class="container-mapa">
     <div class="linha-mapa">
-        <!-- Lista do Reino 1 -->
         <div class="bloco esquerda">
             <div class="lista-jogadores">
                 <?php 
@@ -86,7 +96,6 @@ $coresReino2 = ['#F5A623', '#D0021B', '#F8E71C', '#F56A79']; // quentes
             $left = ($player['pla_x'] - 1) * (247 / 20);
             $top = ($player['pla_y'] - 1) * (247 / 20);
 
-            // Definir cor
             $cor = ($player['pla_reino'] == 1) ? $coresReino1[0] : $coresReino2[0];
 
             echo "<div class='player-icon' style='left: {$left}px; top: {$top}px; background-color: $cor;' title='{$player['pla_nome']}'></div>";
@@ -113,6 +122,40 @@ $coresReino2 = ['#F5A623', '#D0021B', '#F8E71C', '#F56A79']; // quentes
 
 </body>
 </html>
+
+<script>
+    const blocoContainers = document.querySelectorAll(".bloco-centro");
+
+    function atualizarPosicoes() {
+        fetch('atualizar_mapa.php')
+            .then(response => response.json())
+            .then(players => {
+                document.querySelectorAll('.player-icon').forEach(el => el.remove());
+
+                players.forEach(player => {
+                    const blocoIndex = player.pla_bloco - 1;
+                    const bloco = blocoContainers[blocoIndex];
+                    if (!bloco) return;
+
+                    const left = (player.pla_x - 1) * (247 / 20);
+                    const top = (player.pla_y - 1) * (247 / 20);
+                    const cor = player.pla_reino == 1 ? '#4A90E2' : '#F5A623';
+
+                    const icon = document.createElement('div');
+                    icon.classList.add('player-icon');
+                    icon.style.left = `${left}px`;
+                    icon.style.top = `${top}px`;
+                    icon.style.backgroundColor = cor;
+                    icon.title = player.pla_nome;
+
+                    bloco.appendChild(icon);
+                });
+            });
+    }
+
+    setInterval(atualizarPosicoes, 3000);
+</script>
+
 
 <?php
 mysqli_close($conexao);

@@ -8,6 +8,23 @@ $query = "SELECT *
 $result = mysqli_query($conexao, $query);
 $player = mysqli_fetch_assoc($result);
 
+$query_turno = "SELECT tur_atual FROM turnos WHERE tur_ses_id = {$player['pla_ses_id']}";
+$result_turno = mysqli_query($conexao, $query_turno);
+$turno = mysqli_fetch_assoc($result_turno);
+
+$eh_turno = $turno && $turno['tur_atual'] == $player_id;
+
+
+$query_all = "SELECT pla_id, pla_x, pla_y, pla_bloco, pla_reino FROM players WHERE pla_ses_id = {$player['pla_ses_id']}";
+$result_all = mysqli_query($conexao, $query_all);
+
+$companheiros = [];
+while ($p = mysqli_fetch_assoc($result_all)) {
+    if ($p['pla_id'] != $player_id && $p['pla_reino'] == $player['pla_reino']) {
+        $companheiros[] = $p;
+    }
+}
+
 $raio = (int) ($player['pla_AGI'] / 2);
 
 $coresFria = ['#4A90E2','#50E3C2','#9013FE','#B8E986'];
@@ -39,21 +56,33 @@ $corPlayer = ($player['pla_reino']==1 ? $coresFria[0] : $coresQuente[0]);
   <div class="map-view">
     <div class="grid-centro" id="gridCentro">
       <?php
-      // Gera 3x3 blocos
       for($b=1;$b<=9;$b++): ?>
         <div class="bloco-centro">
+          <?php foreach ($companheiros as $c) {
+            if ($c['pla_bloco'] != $b) continue;
+            $cx = ($c['pla_x']-1)*(352/20);
+            $cy = ($c['pla_y']-1)*(352/20);
+            echo "<div class='player-icon' style='left:{$cx}px; top:{$cy}px; background-color:#999;'></div>";
+          }
+?>
           <div class="grid-celulas">
-            <?php for($y=1;$y<=20;$y++):
-              for($x=1;$x<=20;$x++):
-                // Só marca área de movimento dentro do bloco do jogador
+            <?php 
+            for($y=1;$y<=20;$y++){
+              for($x=1;$x<=20;$x++){
                 $classe = '';
                 if($b == $player['pla_bloco']){
                   $dist = abs($player['pla_x'] - $x) + abs($player['pla_y'] - $y);
                   if($dist <= $raio) $classe = ' celula-movimento';
                 }
+                foreach($companheiros as $comp) {
+                  if ($comp['pla_bloco'] == $b && $comp['pla_x'] == $x && $comp['pla_y'] == $y) {
+                      $classe .= ' celula-bloqueada';
+                  }
+                }
+              
                 echo "<div id='celula-{$b}-{$y}-{$x}' class='celula{$classe}' data-bloco='$b' data-linha='$y' data-coluna='$x'></div>";
-              endfor;
-            endfor; ?>
+              }
+            } ?>
           </div>
           <?php if($b == $player['pla_bloco']):
             $l = ($player['pla_x']-1)*(352/20);
@@ -84,8 +113,19 @@ $corPlayer = ($player['pla_reino']==1 ? $coresFria[0] : $coresQuente[0]);
   const ty = cy - yIdx*size;
   grid.style.transform = `translate(${tx}px, ${ty}px)`;
 
+
+  const ehTurno = <?= $eh_turno ? 'true' : 'false' ?>;
+
   document.querySelectorAll('.celula-movimento').forEach(celula => {
-    celula.addEventListener('click', async (e) => {
+  celula.addEventListener('click', async (e) => {
+    if (!ehTurno) {
+      alert("Aguarde sua vez.");
+      return;
+    }
+
+
+      if (celula.classList.contains('celula-bloqueada')) return;
+
       const bloco = e.target.dataset.bloco;
       const linha = e.target.dataset.linha;
       const coluna = e.target.dataset.coluna;

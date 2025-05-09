@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (data.players < data.total) {
                     statusDiv.innerHTML = `<h2 class="subtitle">${data.players}/${data.total} Jogadores Cadastrados</h2>`;
                 } else {
-                    statusDiv.innerHTML = `<a href='Jogabilidade/chat.php?dialogo=intro' class='btn2 redB dark-redBC white bold mediumT title'>Iniciar Sessão</a>`;
+                    statusDiv.innerHTML = `<a href='Jogabilidade/turno.php' class='btn2 redB dark-redBC white bold mediumT title'>Iniciar Sessão</a>`;
                 }
             });
     }
