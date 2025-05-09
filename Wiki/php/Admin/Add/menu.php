@@ -45,6 +45,7 @@
             <a href="addArma.php" class="items redBC solid mediumBS black bold text smallT"><img src="../../../resources/settings.png">Cadastrar arma</a>
             <a href="addEfeito.php" class="items redBC solid mediumBS black bold text smallT"><img src="../../../resources/settings.png">Cadastrar efeito</a>
             <a href="addItem.php" class="items redBC solid mediumBS black bold text smallT"><img src="../../../resources/settings.png">Cadastrar item</a>
+            <a href="addMonstro.php" class="items redBC solid mediumBS black bold text smallT"><img src="../../../resources/settings.png">Cadastrar monstro</a>
 
         </div>
         
