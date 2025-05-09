@@ -3,8 +3,7 @@ session_start();
 include "../../mysqlconecta.php";
 
 $sessao = $_SESSION['ses_id'] ?? null;
-if (!$sessao) header("Location: ../entrar.php
-");
+if (!$sessao) header("Location: ../entrar.php");
 
 $query = "SELECT pla_id, pla_reino FROM players WHERE pla_ses_id = $sessao ORDER BY pla_id";
 $result = mysqli_query($conexao, $query);
@@ -30,3 +29,7 @@ if (mysqli_num_rows($check) > 0) {
 } else {
     mysqli_query($conexao, "INSERT INTO turnos (tur_ses_id, tur_ordem, tur_atual) VALUES ($sessao, '$ordemSerial', $turnoAtual)");
 }
+
+header("Location: chat.php?dialogo=intro")
+
+?>
