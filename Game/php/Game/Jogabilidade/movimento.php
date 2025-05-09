@@ -101,7 +101,6 @@ $corPlayer = ($player['pla_reino']==1 ? $coresFria[0] : $coresQuente[0]);
   ⏳ Aguarde sua vez...
 </div>
 <?php endif; ?>
-
 </html>
 
 <script>
@@ -157,4 +156,21 @@ $corPlayer = ($player['pla_reino']==1 ? $coresFria[0] : $coresQuente[0]);
     });
   });
 })();
+</script>
+
+
+<script>
+
+  setInterval(async () => {
+    try {
+      const response = await fetch('verifica_turno.php');
+      const result = await response.json();
+      if (result.status === 'ok' && result.eh_turno) {
+        location.reload();
+      }
+    } catch (e) {
+      console.warn('Erro ao verificar turno:', e);
+    }
+  }, 3000);
+
 </script>
