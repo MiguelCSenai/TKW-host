@@ -72,7 +72,7 @@ $corPlayer = ($player['pla_reino']==1 ? $coresFria[0] : $coresQuente[0]);
                 $classe = '';
                 if($b == $player['pla_bloco']){
                   $dist = abs($player['pla_x'] - $x) + abs($player['pla_y'] - $y);
-                  if($dist <= $raio) $classe = ' celula-movimento';
+                  if($dist <= $raio && $eh_turno) $classe = ' celula-movimento';
                 }
                 foreach($companheiros as $comp) {
                   if ($comp['pla_bloco'] == $b && $comp['pla_x'] == $x && $comp['pla_y'] == $y) {
@@ -96,6 +96,12 @@ $corPlayer = ($player['pla_reino']==1 ? $coresFria[0] : $coresQuente[0]);
   </div>
 
 </body>
+<?php if (!$eh_turno): ?>
+<div style="position: fixed; top: 10px; left: 50%; transform: translateX(-50%); background: #f8d7da; color: #721c24; padding: 10px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.2); z-index: 999;">
+  ⏳ Aguarde sua vez...
+</div>
+<?php endif; ?>
+
 </html>
 
 <script>
