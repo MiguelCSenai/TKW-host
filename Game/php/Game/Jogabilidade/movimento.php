@@ -38,6 +38,9 @@ $corPlayer = ($player['pla_reino']==1 ? $coresFria[0] : $coresQuente[0]);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Movimento Mobile</title>
   <link rel="stylesheet" href="../../../css/game/movimento.css">
+  <link rel="stylesheet" href="../../../css/general/fonts.css">
+  <link rel="stylesheet" href="../../../css/game/elements/components.css">
+  <link rel="stylesheet" href="../../../css/game/elements/animations.css">
 <style>
 
     .player-icon {
@@ -94,6 +97,8 @@ $corPlayer = ($player['pla_reino']==1 ? $coresFria[0] : $coresQuente[0]);
       <?php endfor; ?>
     </div>
   </div>
+
+  <a href="playerIndex.php" class="voltar subtitle">Voltar</a>
 
 </body>
 <?php if (!$eh_turno): ?>

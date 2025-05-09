@@ -81,3 +81,22 @@ body{
   cursor: pointer;
   transition: 0.8s ease-in-out;
 }
+
+.sair{
+
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  height: 15vh;
+  background-color: red;
+  border: rgb(141, 0, 0) solid 3px;
+  border-radius: 15vh;
+  padding-inline: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 3vh;
+
+}

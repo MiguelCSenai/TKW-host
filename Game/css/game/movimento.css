@@ -68,3 +68,23 @@ body{
     overflow: hidden;
     touch-action: none;
 }
+
+.voltar{
+
+    border: rgb(181, 119, 65) solid 2px;
+    border-radius: 25vw;
+    width: 25vw;
+    aspect-ratio: 1/1;
+    background-color: yellow;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    bottom: 10px;
+    right: 10px;
+    font-size: 6vw;
+
+}

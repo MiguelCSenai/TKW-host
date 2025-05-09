@@ -120,6 +120,8 @@ foreach ($reino2 as $p) {
     </div>
 </div>
 
+<a href="../../../../Game/php/Game/sair.php" class="sair subtitle">FINALIZAR SESSÃO</a>
+
 </body>
 </html>
 
