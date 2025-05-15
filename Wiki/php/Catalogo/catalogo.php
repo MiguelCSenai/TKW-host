@@ -146,7 +146,7 @@ if ($result->num_rows > 0) {
 </div>
 
 
-    <h1 class="red subtitle mediumT SdarkRed">Efeitos</h1>
+<h1 class="red subtitle mediumT SdarkRed">Efeitos</h1>
 <div class="container-efeitos">
 <?php
 
@@ -184,9 +184,85 @@ if ($result->num_rows > 0) {
 } else {
     echo "<p>Nenhum efeito cadastrado.</p>";
 }
-$conexao->close();
 ?>
 
+
+</div>
+
+<h1 class="red subtitle mediumT SdarkRed">Monstros</h1>
+<div class="container-armas">
+<?php
+$query = "SELECT * FROM monstros ORDER BY mon_natureza, mon_nome";
+$result = mysqli_query($conexao, $query);
+
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+
+    // Define a classe visual baseada na natureza
+    switch ($row["mon_natureza"]) {
+        case 'Sangue':
+            $classe = "monstro sangue solid mediumBS redB dark-redBC white";
+            break;
+        case 'Vísceras':
+            $classe = "monstro visceras solid mediumBS light-purpleB purpleBC white";
+            break;
+        case 'Ossos':
+            $classe = "monstro ossos solid mediumBS whiteB grayBC black";
+            break;
+        case 'Consciência':
+            $classe = "monstro consciencia solid mediumBS light-blueB blueBC darkBlue";
+            break;
+        case 'Base':
+        default:
+            $classe = "monstro base solid mediumBS grayB dark-grayBC white";
+    }
+
+    echo "<div class='$classe'>";
+
+    echo "<div class='nome subtitle mediumT'>" . $row["mon_nome"] . "</div>";
+
+    echo "<img src='" . $row["mon_icone"] . "' alt='" . $row["mon_nome"] . "' class='imagem'>";
+
+    echo "<div class='descricao'><strong>Natureza:</strong> " . $row["mon_natureza"] . "</div>";
+
+    echo "<div class='atributos'>";
+
+    // VIDA
+    $vida = min($row["mon_HP"], 100);
+    echo "<div class='atributo'>
+            Vida
+            <div class='barra'>
+                <div class='barra-interna' style='width: {$vida}%'></div>
+            </div>
+          </div>";
+
+    // ATAQUE
+    $ataque = min($row["mon_STR"], 10) * 10;
+    echo "<div class='atributo'>
+            Ataque
+            <div class='barra'>
+                <div class='barra-interna' style='width: {$ataque}%'></div>
+            </div>
+          </div>";
+
+    // AGILIDADE
+    $agilidade = min($row["mon_AGI"], 10) * 10;
+    echo "<div class='atributo'>
+            Agilidade
+            <div class='barra'>
+                <div class='barra-interna' style='width: {$agilidade}%'></div>
+            </div>
+          </div>";
+
+    echo "</div>"; // atributos
+    echo "</div>"; // monstro
+}
+
+} else {
+    echo "<p>Nenhum monstro cadastrado.</p>";
+}
+$conexao->close();
+?>
 </div>
 
     <div id="expandedContainer"></div>

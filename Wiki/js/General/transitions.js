@@ -68,3 +68,36 @@ function details(id) {
         overlay.classList.add("ativo");
     }
 }
+
+function detailsMonster(id) {
+    let monstro = document.querySelector(`.arma[data-id='${id}']`);
+    if (!monstro) return;
+
+    let descricao = monstro.querySelector('.descricao');
+    let vida = monstro.querySelector('.dano');
+    let ataque = monstro.querySelector('.velocidade');
+    let agilidade = monstro.querySelector('.alcance');
+    let overlay = document.getElementById("backgroundOverlay");
+
+    if (monstro.classList.contains("expandido")) {
+        monstro.classList.remove("expandido");
+        overlay.classList.remove("ativo");
+        vida.style.display = "none";
+        ataque.style.display = "none";
+        agilidade.style.display = "none";
+    } else {
+        document.querySelectorAll(".arma.expandido").forEach(item => {
+            item.classList.remove("expandido");
+            item.querySelector(".dano").style.display = "none";
+            item.querySelector(".velocidade").style.display = "none";
+            item.querySelector(".alcance").style.display = "none";
+        });
+
+        monstro.classList.add("expandido");
+        descricao.classList.add("ativa");
+        vida.style.display = "block";
+        ataque.style.display = "block";
+        agilidade.style.display = "block";
+        overlay.classList.add("ativo");
+    }
+}

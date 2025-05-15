@@ -126,6 +126,12 @@ foreach ($reino2 as $p) {
 </html>
 
 <script>
+
+    fetch("gerar_monstros.php").then(() => window.location.href = "mapa.php");
+
+</script>
+
+<script>
     const blocoContainers = document.querySelectorAll(".bloco-centro");
 
     function atualizarPosicoes() {
@@ -155,7 +161,8 @@ foreach ($reino2 as $p) {
             });
     }
 
-    setInterval(atualizarPosicoes, 3000);
+    setInterval(atualizarPosicoes, 10000);
+
 </script>
 
 

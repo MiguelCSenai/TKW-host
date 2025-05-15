@@ -288,3 +288,65 @@ body{
     background-color: goldenrod;
 
 }
+
+
+.monstro {
+    border-radius: 12px;
+    padding-inline: 30px;
+    padding-block: 20px 60px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.monstro:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.monstro .nome {
+    font-weight: bold;
+    text-align: center;
+}
+
+.monstro .imagem {
+    width: 100%;
+    scale: 2/5;
+    object-fit: contain;
+    background-color: #167dcc;
+}
+
+.monstro .descricao {
+    font-size: 0.95em;
+    text-align: center;
+}
+
+.monstro .atributos {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.monstro .atributo {
+    font-size: 0.9em;
+}
+
+.monstro .barra {
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 2px;
+}
+
+.monstro .barra-interna {
+    height: 100%;
+    background-color: currentColor;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
