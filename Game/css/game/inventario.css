@@ -95,7 +95,7 @@ body {
 
 .arma{
 
-    width: 90vw;
+    width: 100vw;
     height: calc(40vh + 10px);
     display: flex;
     flex-direction: row;
