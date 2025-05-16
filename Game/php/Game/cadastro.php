@@ -50,7 +50,7 @@
                 <button type="button" id="next-btn">▶</button>
             </div>
 
-            <input type="hidden" id="classe" name="classe" value="Ladrão">
+            <input type="hidden" id="classe" name="classe" value="">
 
             <button type="submit">Continuar</button>
         </form>

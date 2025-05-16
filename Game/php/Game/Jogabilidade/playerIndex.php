@@ -60,9 +60,9 @@ if (isset($_SESSION['player_id'])) {
             <div class="icon-button" id="magia">
                 <img src="../../../resources/img/magia.png" alt="Magia" class="icon-img">
             </div>
-            <div class="icon-button" id="movimento">
+            <!--<div class="icon-button" id="movimento">
                 <img src="../../../resources/img/movimento.png" alt="Magia" class="icon-img">
-            </div>
+            </div>-->
         </div>
 
     <div class="stats">

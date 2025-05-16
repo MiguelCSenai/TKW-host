@@ -315,9 +315,8 @@ body{
 
 .monstro .imagem {
     width: 100%;
-    scale: 2/5;
-    object-fit: contain;
-    background-color: #167dcc;
+    aspect-ratio: 2/3;
+    filter: drop-shadow(10px);
 }
 
 .monstro .descricao {
@@ -338,10 +337,21 @@ body{
 
 .monstro .barra {
     background-color: rgba(255, 255, 255, 0.2);
-    height: 8px;
+    height: 2vh;
     border-radius: 4px;
     overflow: hidden;
     margin-top: 2px;
+    position: relative;
+}
+
+.monstro .barra span{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+
 }
 
 .monstro .barra-interna {
@@ -349,4 +359,12 @@ body{
     background-color: currentColor;
     border-radius: 4px;
     transition: width 0.3s ease;
+}
+
+.teste{
+
+    background-color: #4caf50;
+    width: 400px;
+    aspect-ratio: 2/3;
+
 }

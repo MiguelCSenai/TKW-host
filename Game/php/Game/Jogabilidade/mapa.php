@@ -39,7 +39,6 @@ foreach ($reino2 as $p) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The King's Will</title>
-    <link rel="stylesheet" href="../../../css/game/settings.css">
     <link rel="stylesheet" href="../../../css/general/fonts.css">
     <link rel="stylesheet" href="../../../css/game/elements/components.css">
     <link rel="stylesheet" href="../../../css/game/elements/animations.css">
@@ -147,13 +146,13 @@ foreach ($reino2 as $p) {
 
                     const left = (player.pla_x - 1) * (247 / 20);
                     const top = (player.pla_y - 1) * (247 / 20);
-                    const cor = player.pla_reino == 1 ? '#4A90E2' : '#F5A623';
+                    const cor = player.pla_reino == 1 ? '#4A90E2' : '#F5A623';//separa os times por cor
 
-                    const icon = document.createElement('div');
-                    icon.classList.add('player-icon');
-                    icon.style.left = `${left}px`;
+                    const icon = document.createElement('div');//cria uma div e da ja coloca ela em uma variavel
+                    icon.classList.add('player-icon');//adiciona uma classe
+                    icon.style.left = `${left}px`;//posiciona o icone
                     icon.style.top = `${top}px`;
-                    icon.style.backgroundColor = cor;
+                    icon.style.backgroundColor = cor;//define a cor do icone com base no time
                     icon.title = player.pla_nome;
 
                     bloco.appendChild(icon);
@@ -161,7 +160,7 @@ foreach ($reino2 as $p) {
             });
     }
 
-    setInterval(atualizarPosicoes, 10000);
+    setInterval(atualizarPosicoes, 15000);
 
 </script>
 

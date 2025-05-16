@@ -223,33 +223,36 @@ if (mysqli_num_rows($result) > 0) {
 
     echo "<img src='" . $row["mon_icone"] . "' alt='" . $row["mon_nome"] . "' class='imagem'>";
 
-    echo "<div class='descricao'><strong>Natureza:</strong> " . $row["mon_natureza"] . "</div>";
+    echo "<div class='descricao text'><strong>Natureza:</strong> " . $row["mon_natureza"] . "</div>";
 
-    echo "<div class='atributos'>";
+    echo "<div class='atributos text'>";
 
     // VIDA
     $vida = min($row["mon_HP"], 100);
     echo "<div class='atributo'>
-            Vida
+            <strong>Vida</strong>
             <div class='barra'>
+                <span class='black text'>{$row['mon_HP']}</span>
                 <div class='barra-interna' style='width: {$vida}%'></div>
             </div>
           </div>";
 
     // ATAQUE
-    $ataque = min($row["mon_STR"], 10) * 10;
+    $ataque = min($row["mon_STR"], 30) * (10/3);
     echo "<div class='atributo'>
-            Ataque
+            <strong>Força</strong>
             <div class='barra'>
+                <span class='black text'>{$row['mon_STR']}</span>
                 <div class='barra-interna' style='width: {$ataque}%'></div>
             </div>
           </div>";
 
     // AGILIDADE
-    $agilidade = min($row["mon_AGI"], 10) * 10;
+    $agilidade = min($row["mon_AGI"], 30) * (10/3);
     echo "<div class='atributo'>
-            Agilidade
+            <strong>Agilidade</strong>
             <div class='barra'>
+                <span class='black text'>{$row['mon_AGI']}</span>
                 <div class='barra-interna' style='width: {$agilidade}%'></div>
             </div>
           </div>";
