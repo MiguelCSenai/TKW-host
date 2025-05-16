@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     window.location.href = 'inventario.php';
                     break;
                 case 'combate':
-                    window.location.href = 'combate.php';
+                    window.location.href = 'armas.php';
                     break;
                 case 'magia':
                     window.location.href = 'magia.php';

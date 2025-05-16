@@ -1,6 +1,6 @@
 body{
 
-    padding-bottom: 300px;
+    padding-bottom: 200px;
     background-image: linear-gradient(161deg, rgba(121, 121, 121, 0.02) 0%, rgba(121, 121, 121, 0.02) 16.667%,rgba(193, 193, 193, 0.02) 16.667%,
     rgba(193, 193, 193, 0.02) 33.334%,rgba(177, 177, 177, 0.02) 33.334%, rgba(177, 177, 177, 0.02) 50.001000000000005%,rgba(5, 5, 5, 0.02) 50.001%,
     rgba(5, 5, 5, 0.02) 66.668%,rgba(229, 229, 229, 0.02) 66.668%, rgba(229, 229, 229, 0.02) 83.33500000000001%,rgba(211, 211, 211, 0.02) 83.335%,
@@ -31,13 +31,13 @@ body{
 .arma {
     padding: 15px;
     margin: 20px 20px;
-    height: 430px;  
+    width: 95%;  
     border-radius: 10px;
     text-align: center;
     display: inline-block;
     vertical-align: middle;
-    max-width: 300px;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    box-sizing: border-box;
 }
 
 .arma img {
@@ -45,6 +45,7 @@ body{
     height: auto;
     border-radius: 10px;
     background-color: #e4e4e41f;
+    box-sizing: border-box;
     border: #4a4a4aac solid 2px;
     transition: 0.5s ease-out;
 }
@@ -52,13 +53,12 @@ body{
 .arma:hover img{
 
     max-width: calc(100% + 30px);
-    margin-left: -17px;
+    margin-left: -15px;
     margin-top: -15px;
+    border-radius: 8px;
     background-color: #0000004c;
 
 }
-
-
 
 .arma h2 {
     margin: 10px 0;

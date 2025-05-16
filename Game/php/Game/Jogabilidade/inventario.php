@@ -33,7 +33,7 @@ include "../../mysqlconecta.php";
 </head>
 <body>
 
-    <h1 class="inv subtitle red SdarkRed">Inventário do Jogador</h1>
+    <h1 class="inv subtitle red SdarkRed">Inventário</h1>
     <div class="inventory">
         <?php foreach ($items as $item): ?>
             <div class="item-card">

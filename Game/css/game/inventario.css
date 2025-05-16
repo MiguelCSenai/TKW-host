@@ -1,3 +1,9 @@
+*{
+
+    user-select: none;
+
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -33,9 +39,8 @@ body {
     width: 100vw;
     padding-inline: 5vw;
     box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     margin-top: 5vh;
 
@@ -47,7 +52,8 @@ body {
     padding: 10px;
     background: #2222220a;
     color: #fff;
-    width: calc(30vw - 32px);
+    width: calc(100%);
+    box-sizing: border-box;
     text-align: center;
     position: relative;
 }
@@ -78,6 +84,62 @@ body {
     position: absolute;
     right: -22px;
     bottom: -30px;
+    z-index: 4;
     
 
+}
+
+
+
+
+.arma{
+
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    margin-top: 5vh;
+    max-height: 45vh;
+
+}
+
+.arma img{
+
+    width: 100%;
+    aspect-ratio: 1/1;
+
+}
+
+.arma .icon{
+
+    width: 50%;
+    text-align: center;
+
+}
+
+.stat-bar {
+    width: 35vw;
+    height: 3vh;
+    background-color: #cccccc8f;
+    border-radius: 5px;
+    margin-top: 5px;
+    position: relative;
+}
+
+.stat-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #eeff6d;
+}
+
+.stat-num {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    color: #393939;
+    z-index: 4;
 }
