@@ -29,9 +29,8 @@ while ($row = mysqli_fetch_assoc($result)) {
     <link rel="stylesheet" href="../../../css/general/fonts.css">
     <link rel="stylesheet" href="../../../css/general/attributes.css">
 </head>
-<body>
+<body style="padding:0;">
 
-    <h1 class="inv subtitle red SdarkRed">Armas</h1>
         <?php foreach ($armas as $arma): ?>
             <?php
                 switch ($arma['wpn_natureza']) {
@@ -99,6 +98,8 @@ while ($row = mysqli_fetch_assoc($result)) {
                 </div>
             </div>
         <?php endforeach; ?>
+
+    <a href="playerIndex.php" class="voltar subtitle">Voltar</a>
 
 </body>
 </html>

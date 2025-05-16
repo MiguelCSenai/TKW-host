@@ -23,6 +23,7 @@ body {
     box-sizing: border-box;
     width: 100vw;
     height: 100vh;
+    position: relative;
 
 }
 
@@ -97,8 +98,8 @@ body {
     width: 90vw;
     display: flex;
     flex-direction: row;
-    margin-top: 5vh;
-    max-height: 45vh;
+    margin-top: 3vh;
+    height: 40vh;
 
 }
 
@@ -142,4 +143,26 @@ body {
     font-weight: bold;
     color: #393939;
     z-index: 4;
+}
+
+.voltar{
+
+    position: absolute;
+    bottom: 2vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 8vh;
+    width: 85vw;
+    background-color: red;
+    border: rgb(141, 0, 0) solid 3px;
+    border-radius: 15vh;
+    padding-inline: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 3vh;
+    text-decoration: none;
+
 }

@@ -46,6 +46,8 @@ include "../../mysqlconecta.php";
         <?php endforeach; ?>
     </div>
 
+    <a href="playerIndex.php" class="voltar subtitle">Voltar</a>
+
 
 </body>
 </html>
