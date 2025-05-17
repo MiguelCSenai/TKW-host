@@ -46,6 +46,7 @@
             <a href="addEfeito.php" class="items redBC solid mediumBS black bold text smallT"><img src="../../../resources/settings.png">Cadastrar efeito</a>
             <a href="addItem.php" class="items redBC solid mediumBS black bold text smallT"><img src="../../../resources/settings.png">Cadastrar item</a>
             <a href="addMonstro.php" class="items redBC solid mediumBS black bold text smallT"><img src="../../../resources/settings.png">Cadastrar monstro</a>
+            <a href="addMagia.php" class="items redBC solid mediumBS black bold text smallT"><img src="../../../resources/settings.png">Cadastrar magia</a>
 
         </div>
         
