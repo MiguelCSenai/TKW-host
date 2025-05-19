@@ -50,7 +50,7 @@ if (isset($_SESSION['player_id'])) {
 
     </div>
 
-    <div class="button-container">
+        <div class="button-container">
             <div class="icon-button" id="inventario">
                 <img src="../../../resources/img/inventario.png" alt="Inventário" class="icon-img">
             </div>
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     window.location.href = 'armas.php';
                     break;
                 case 'magia':
-                    window.location.href = 'magia.php';
+                    window.location.href = 'magias.php';
                     break;
                 case 'movimento':
                     window.location.href = 'movimento.php';

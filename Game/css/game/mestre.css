@@ -1,0 +1,357 @@
+*{
+
+    user-select: none;
+
+}
+
+body {
+
+    background: url('../../resources/img/fundo_sombrio.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.grid{
+
+    display: grid;
+    grid-template-columns: repeat(3, 22vh);
+    grid-template-rows: repeat(3, 22vh);
+    gap: 5px;
+
+}
+
+.bloco{
+
+    border: 5px solid red;
+    border-radius: 10px;
+    aspect-ratio: 1/1;
+    height: 22vh;
+    box-sizing: border-box;
+    position: relative;
+    user-select: none;
+
+}
+
+.mercado {
+    border: 4px solid yellow;
+    height: 82vh;
+    width: 50vw;
+    border-radius: 2vh;
+    padding: 1vw;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.conteudo-mercado {
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 2vw;
+}
+
+.conteudo-mercado::-webkit-scrollbar {
+    width: 8px;
+}
+
+.conteudo-mercado::-webkit-scrollbar-track {
+    background: #000000;
+    border-radius: 10px;
+    margin: 4px 1px 4px 0;
+}
+
+.conteudo-mercado::-webkit-scrollbar-thumb {
+    background-color: #ffb700;
+    border-radius: 10px;
+    border: 2px solid #6a3204;
+    background-clip: padding-box;
+}
+
+.conteudo-mercado::-webkit-scrollbar-thumb:hover {
+    background-color: #cc33ff;
+}
+
+.conteudo-mercado{
+
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+
+.monstro{
+
+    width: 30%;
+    height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+    gap: 5px;
+    user-select: none;
+    border-width: 4px;
+    position: relative;
+
+}
+
+.monstro .nome{
+
+    width: 100%;
+    font-size: 1.75em;
+    text-align: center;
+
+}
+
+.monstro .descricao{
+
+    text-align: center;
+
+}
+
+.monstro .imagem{
+
+    width: 70%;
+
+}
+
+.monstro .atributos{
+
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+
+}
+
+.monstro.desativado {
+    filter: grayscale(70%);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.atributo .barra{
+
+    width: 100%;
+    text-align: center;
+
+}
+
+.atributos .atributo {
+  flex: 1;
+  text-align: center;
+  padding: 0 5px;
+  position: relative;
+}
+
+.base .atributos .atributo:not(:first-child) {
+  border-left: 3px solid #1e1e1e;
+}
+
+.sangue .atributos .atributo:not(:first-child) {
+  border-left: 3px solid white;
+}
+
+.visceras .atributos .atributo:not(:first-child) {
+  border-left: 3px solid purple;
+}
+
+.ossos .atributos .atributo:not(:first-child) {
+  border-left: 3px solid black;
+}
+
+.consciencia .atributos .atributo:not(:first-child) {
+  border-left: 3px solid #00008B;
+}
+
+.marcado{
+
+    border-color: #ffaa00;
+
+}
+
+.botao{
+
+    position: absolute;
+    left: 50%;
+    bottom: -4vh;
+    transform: translate(-50%, -50%);
+    height: 12vh;
+    background-color: rgb(255, 0, 0);
+    border: rgb(141, 0, 0) solid 4px;
+    border-radius: 2.5vh;
+    padding-inline: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 3vh;
+    text-decoration: none;
+    aspect-ratio: 2.5/1;
+
+}
+
+.sair{
+
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  height: 6vh;
+  background-color: red;
+  border: rgb(141, 0, 0) solid 4px;
+  border-radius: 15vh;
+  padding-inline: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 3vh;
+  text-decoration: none;
+  aspect-ratio: 3/1;
+
+}
+
+.bloco.desativado {
+    pointer-events: none;
+    border-color: rgb(178, 178, 178);
+    opacity: 0.7;
+}
+.contador {
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+.container{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
+    box-sizing: border-box;
+    padding-block: 2vh;
+
+}
+
+.valor{
+
+    position: absolute;
+    bottom: -2.5vh;
+    right: -2.5vh;
+    background-color: yellow;
+    width: 5vh;
+    aspect-ratio: 1/1;
+    border-radius: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+
+}
+
+.perfil{
+
+    height: 25vh;
+    border-radius: 2vh;
+
+}
+
+.info-mestre {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 2vh;
+    height: 100%;
+    font-size: 2.5vh;
+    color: white;
+}
+
+.item-mestre {
+    margin-bottom: 1vh;
+    display: flex;
+    gap: 10px;
+}
+
+.barra-xp {
+    height: 2vh;
+    width: 100%;
+    border: 2px solid white;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    padding: 4px 5px;
+    position: relative;
+    margin-inline: 10px;
+}
+
+.turnos {
+    height: 2vh;
+    width: 100%;
+    background: red;
+}
+
+.creditos{
+
+    position: absolute;
+    top: -4vh;
+    right: -4vh;
+    height: 6.5vh;
+    aspect-ratio: 1.5/1;
+    font-size: 1.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(255, 81, 0);
+    border: 4px solid rgb(162, 51, 0);
+    border-radius: 3vh;
+
+}
+
+.nivel{
+
+    position: absolute;
+    top: -4.5vh;
+    left: -2.5vh;
+    /*background-color: yellow;*/
+    width: 4.2vh;
+    aspect-ratio: 1/1;
+    border-radius: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6em;
+    color: yellow;
+
+}
+
+.prox-nivel{
+
+    position: absolute;
+    top: -4.5vh;
+    right: -2.5vh;
+    /*background-color: yellow;*/
+    width: 4.2vh;
+    aspect-ratio: 1/1;
+    border-radius: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6em;
+    color: yellow;
+
+}

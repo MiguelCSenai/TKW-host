@@ -79,29 +79,29 @@ foreach ($reino2 as $p) {
         <div class="grid-centro">
             <?php for ($bloco = 1; $bloco <= 9; $bloco++) { ?>
                 <div class="bloco-centro">
-    <div class="grid-celulas">
-        <?php
-        for ($linha = 1; $linha <= 20; $linha++) {
-            for ($coluna = 1; $coluna <= 20; $coluna++) {
-                echo "<div class='celula' data-linha='$linha' data-coluna='$coluna'></div>";
-            }
-        }
-        ?>
-    </div>
+                    <div class="grid-celulas">
+                        <?php
+                        for ($linha = 1; $linha <= 20; $linha++) {
+                            for ($coluna = 1; $coluna <= 20; $coluna++) {
+                                echo "<div class='celula'></div>";
+                            }
+                        }
+                        ?>
+                    </div>
 
-    <?php
-    foreach ($players as $player) {
-        if ($player['pla_bloco'] == $bloco) {
-            $left = ($player['pla_x'] - 1) * (247 / 20);
-            $top = ($player['pla_y'] - 1) * (247 / 20);
+                <?php
+                foreach ($players as $player) {
+                    if ($player['pla_bloco'] == $bloco) {
+                        $left = ($player['pla_x'] - 1) * (247 / 20);
+                        $top = ($player['pla_y'] - 1) * (247 / 20);
 
-            $cor = ($player['pla_reino'] == 1) ? $coresReino1[0] : $coresReino2[0];
+                        $cor = ($player['pla_reino'] == 1) ? $coresReino1[0] : $coresReino2[0];
 
-            echo "<div class='player-icon' style='left: {$left}px; top: {$top}px; background-color: $cor;' title='{$player['pla_nome']}'></div>";
-        }
-    }
-    ?>
-</div>
+                        echo "<div class='player-icon' style='left: {$left}px; top: {$top}px; background-color: $cor;' title='{$player['pla_nome']}'></div>";
+                    }
+                }
+                ?>
+                </div>
             <?php } ?>
         </div>
         <div class="bloco direita">
@@ -121,14 +121,21 @@ foreach ($reino2 as $p) {
 
 <a href="../../../../Game/php/Game/sair.php" class="sair subtitle">FINALIZAR SESSÃO</a>
 
+<div class="button-container">
+    <div class="icon-button" id="armadilhas">
+        <img src="../../../resources/img/armadilha.png" alt="Armadilhas" class="icon-img">
+    </div>
+    <div class="icon-button" id="monstros">
+        <img src="../../../resources/img/monstros.png" alt="Monstros" class="icon-img">
+    </div>
+    <div class="icon-button" id="trocar">
+        <img src="../../../resources/img/trocar.png" alt="Trocar" class="icon-img">
+    </div>
+</div>
+
 </body>
 </html>
 
-<script>
-
-    fetch("gerar_monstros.php").then(() => window.location.href = "mapa.php");
-
-</script>
 
 <script>
     const blocoContainers = document.querySelectorAll(".bloco-centro");
@@ -160,7 +167,34 @@ foreach ($reino2 as $p) {
             });
     }
 
-    setInterval(atualizarPosicoes, 15000);
+    setInterval(atualizarPosicoes, 10000);
+
+</script>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    const buttons = document.querySelectorAll('.icon-button');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            const buttonId = this.id;
+            switch (buttonId) {
+                case 'armadilhas':
+                    window.location.href = 'armadilhas.php';
+                    break;
+                case 'monstros':
+                    window.location.href = 'monstros.php';
+                    break;
+                case 'trocar':
+                    window.location.href = 'trocar.php';
+                    break;
+            }
+        });
+    });
+});
 
 </script>
 

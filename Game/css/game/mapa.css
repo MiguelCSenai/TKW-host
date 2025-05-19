@@ -109,3 +109,30 @@ a{
   font-size: 3vh;
 
 }
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3vw;
+    position: absolute;
+    right: 1vw;
+}
+
+.icon-button {
+    background: gold;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px #000;
+    cursor: pointer;
+}
+
+.icon-img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
