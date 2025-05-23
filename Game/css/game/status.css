@@ -1,0 +1,133 @@
+*{
+    
+    user-select: none;
+    
+}
+
+body {
+    
+    background: url('../../resources/img/fundo_sombrio.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    
+}
+
+h1, h2{
+
+    margin-block: 0;
+
+}
+
+.container{
+
+    background: url('../../resources/img/ficha.png');
+    background-size: cover;
+    border-radius: 5vh;
+    border: 5px red solid;
+    width: 65vw;
+    box-sizing: border-box;
+    padding: 4vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 40vh;
+    max-height: 80vh;
+
+
+
+}
+
+.player{
+
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10vh;
+    background-color: rgb(233, 226, 207);
+    box-sizing: border-box;
+    padding: 4vh;
+    margin-block: 5px;
+    border-radius: 3vh;
+    cursor: pointer;
+    border: 5px red solid;
+    position: relative;
+
+}
+
+.xp-bar {
+    width: 80%;
+    height: 20px;
+    background-color: #4f4f4f;
+    border: 2px white solid;
+    border-radius: 5px;
+    position: relative;
+}
+
+.xp-fill {
+    background-color: #4caf50;
+    height: 100%;
+    border-radius: 5px;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.xp-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    top: 1px;
+}
+
+.xp-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-level{
+
+    position: absolute;
+    width: 40%;
+    display: flex;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+
+
+}
+
+.lvl{
+
+    position: absolute;
+    left: 20px;
+    top: -17px;
+    background: gold;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1em;
+    box-shadow: 0 0 5px #000;
+    color: #222;
+
+}
+

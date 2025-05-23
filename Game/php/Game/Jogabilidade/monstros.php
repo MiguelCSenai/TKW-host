@@ -124,8 +124,6 @@ $mestre = mysqli_fetch_array($result_mestre);
         <div class="conteudo-mercado">
             <?php
 
-                include "../../mysqlconecta.php";
-
                 $query = "SELECT * FROM monstros ORDER BY mon_natureza, mon_nome, mon_valor";
                 $result = mysqli_query($conexao, $query);
 
@@ -265,4 +263,4 @@ $mestre = mysqli_fetch_array($result_mestre);
 
 </script>
 
-<a href="mapa.php" class="sair subtitle">VOLTAR</a>
+<a href="mestre.php" class="sair subtitle">VOLTAR</a>

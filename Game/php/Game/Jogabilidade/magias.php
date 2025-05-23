@@ -4,12 +4,10 @@ include "../../mysqlconecta.php";
 
 $player_id = $_SESSION['player_id'];
 
-$query_magias = "
-    SELECT m.mag_id, m.mag_nome, m.mag_descricao, m.mag_conjuracao, m.mag_icone
-    FROM magias m
-    JOIN inventario inv ON m.mag_id = inv.mag_id
-    WHERE inv.pla_id = {$player_id}
-";
+$query_magias = "SELECT m.mag_id, m.mag_nome, m.mag_descricao, m.mag_conjuracao, m.mag_icone
+                 FROM magias m
+                 JOIN inventario inv ON m.mag_id = inv.mag_id
+                 WHERE inv.pla_id = {$player_id}";
 
 $result = mysqli_query($conexao, $query_magias);
 

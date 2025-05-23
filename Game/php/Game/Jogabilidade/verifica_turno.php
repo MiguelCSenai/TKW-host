@@ -24,4 +24,9 @@ $turno = mysqli_fetch_assoc($result_turno);
 
 $eh_turno = $turno && $turno['tur_atual'] == $player_id;
 
-echo json_encode(['status' => 'ok', 'eh_turno' => $eh_turno]);
+// Caso queira também sinalizar quando for o turno do mestre, você pode retornar a string:
+echo json_encode([
+    'status' => 'ok',
+    'eh_turno' => $eh_turno,
+    'turno_atual' => $turno['tur_atual']
+]);
