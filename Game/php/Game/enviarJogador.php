@@ -57,13 +57,9 @@ $result_posicao = mysqli_query($conexao, $query_posicao);
 $row_posicao = mysqli_fetch_assoc($result_posicao);
 $posicao = $row_posicao['total'];
 
-$inicio_y = ($posicao + 1) + 8;
-$inicio_x = ($reino == 1) ? 1 : 20;
-$inicio_bloco = ($reino == 1) ? 4 : 6;
 
-
-$query = "INSERT INTO players (pla_nome, pla_classe, pla_reino, pla_HP, pla_STR, pla_AGI, pla_INT, pla_ses_id, pla_x, pla_y, pla_bloco)
-          VALUES ('$nome', '$classe', '$reino', {$stats['HP']}, {$stats['STR']}, {$stats['AGI']}, {$stats['INT']}, '$ses_id', '$inicio_x', '$inicio_y', '$inicio_bloco')";
+$query = "INSERT INTO players (pla_nome, pla_classe, pla_reino, pla_HP, pla_STR, pla_AGI, pla_INT, pla_ses_id)
+          VALUES ('$nome', '$classe', '$reino', {$stats['HP']}, {$stats['STR']}, {$stats['AGI']}, {$stats['INT']}, '$ses_id')";
 
 if (mysqli_query($conexao, $query)) {
     $player_id = mysqli_insert_id($conexao);
