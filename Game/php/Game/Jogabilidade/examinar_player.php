@@ -240,7 +240,6 @@ include "../../mysqlconecta.php";
             <?php
             $stats = [
                 "pla_HP" => "HP",
-                "pla_Max_HP" => "max_HP",
                 "pla_STR" => "FOR",
                 "pla_AGI" => "AGI",
                 "pla_INT" => "INT"
