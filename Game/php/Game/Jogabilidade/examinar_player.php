@@ -240,6 +240,7 @@ include "../../mysqlconecta.php";
             <?php
             $stats = [
                 "pla_HP" => "HP",
+                "pla_Max_HP" => "max_HP",
                 "pla_STR" => "FOR",
                 "pla_AGI" => "AGI",
                 "pla_INT" => "INT"
@@ -247,7 +248,7 @@ include "../../mysqlconecta.php";
 
             foreach ($stats as $key => $atributo) {
                 $valor = $player[$key];
-                $max = ($key === "pla_HP") && isset($_SESSION) ? $_SESSION['max_HP'] : 30;
+                $max = ($key === "pla_HP") ? $player["pla_Max_HP"] : 30;
                 $porcentagem = min(100, ($valor / $max) * 100);
                 echo "
                 <div class='stat'>
