@@ -247,7 +247,7 @@ include "../../mysqlconecta.php";
 
             foreach ($stats as $key => $atributo) {
                 $valor = $player[$key];
-                $max = ($key === "pla_HP") && isset($_SESSION) ? $_SESSION['max_hp'] : 30;
+                $max = ($key === "pla_HP") && isset($_SESSION) ? $_SESSION['max_HP'] : 30;
                 $porcentagem = min(100, ($valor / $max) * 100);
                 echo "
                 <div class='stat'>
