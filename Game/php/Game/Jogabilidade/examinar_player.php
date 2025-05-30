@@ -251,7 +251,7 @@ include "../../mysqlconecta.php";
                     $max = $player['pla_Max_HP'];
                 } elseif ($key === 'pla_Max_HP') {
                     $max = 999;
-                }elseif($key === 'pla_STR'){
+                }elseif($key === 'pla_STR' || $key === 'pla_INT'){
                     $max = 25;
                 } else {
                     $max = 20;

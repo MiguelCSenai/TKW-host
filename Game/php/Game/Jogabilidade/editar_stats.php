@@ -88,7 +88,7 @@ $atributos = [
             $max = $player['pla_Max_HP'];
         } elseif ($campo === 'pla_Max_HP') {
             $max = 999;
-        }elseif($campo === 'pla_STR'){
+        }elseif($campo === 'pla_STR' || $campo === 'pla_INT'){
             $max = 25;
         } else {
             $max = 20;

@@ -12,7 +12,6 @@ if (isset($_SESSION['player_id'])) {
     $player = mysqli_fetch_assoc($result);
 
     if ($_SESSION['setup']) {
-        $_SESSION['max_hp'] = $player['pla_HP'];
         $_SESSION['setup'] = false;
     }
 ?>
@@ -66,31 +65,39 @@ if (isset($_SESSION['player_id'])) {
         </div>
 
     <div class="stats">
-        <?php
-        $stats = [
-            "pla_HP" => "HP",
-            "pla_STR" => "FOR",
-            "pla_AGI" => "AGI",
-            "pla_INT" => "INT"
-        ];
+            <?php
+            $stats = [
+                "pla_HP" => "HP",
+                "pla_STR" => "FOR",
+                "pla_AGI" => "AGI",
+                "pla_INT" => "INT"
+            ];
 
-        foreach ($stats as $key => $atributo) {
-            $valor = $player[$key];
-            $max = ($key === "pla_HP") && isset($_SESSION) ? $_SESSION['max_hp'] : 30;
-            $porcentagem = min(100, ($valor / $max) * 100);
-            echo "
-            <div class='stat'>
-                <strong class='subtitle'>{$atributo}:</strong>
-                <div class='stat-bar'>
-                    <span class='stat-num'>{$valor} / {$max}</span>
-                    <div class='stat-fill' style='width: {$porcentagem}%;'></div>
+            foreach ($stats as $key => $atributo) {
+                $valor = $player[$key];
+                if ($key === 'pla_HP') {
+                    $max = $player['pla_Max_HP'];
+                } elseif ($key === 'pla_Max_HP') {
+                    $max = 999;
+                }elseif($key === 'pla_STR' || $key === 'pla_INT'){
+                    $max = 25;
+                } else {
+                    $max = 20;
+                }
+                $porcentagem = min(100, ($valor / $max) * 100);
+                echo "
+                <div class='stat'>
+                    <strong class='subtitle'>{$atributo}:</strong>
+                    <div class='stat-bar'>
+                        <span class='stat-num'>{$valor} / {$max}</span>
+                        <div class='stat-fill' style='width: {$porcentagem}%;'></div>
+                    </div>
                 </div>
-            </div>
-            ";
-        }
-        
-        ?>
-    </div>
+                ";
+            }
+            
+            ?>
+        </div>
 
 </body>
 </html>
