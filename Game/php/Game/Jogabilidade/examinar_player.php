@@ -247,7 +247,15 @@ include "../../mysqlconecta.php";
 
             foreach ($stats as $key => $atributo) {
                 $valor = $player[$key];
-                $max = ($key === "pla_HP") ? $player["pla_Max_HP"] : 30;
+                if ($key === 'pla_HP') {
+                    $max = $player['pla_Max_HP'];
+                } elseif ($key === 'pla_Max_HP') {
+                    $max = 999;
+                }elseif($key === 'pla_STR'){
+                    $max = 25;
+                } else {
+                    $max = 20;
+                }
                 $porcentagem = min(100, ($valor / $max) * 100);
                 echo "
                 <div class='stat'>
@@ -263,13 +271,17 @@ include "../../mysqlconecta.php";
             ?>
         </div>
 
+        <a href="editar_stats.php?player_id=<?= $player_id ?>" class="editarStats subtitle bold">Editar Stats</a>
+
     </div>
 
     <div class="container-efeitos">
 
-            
+        
 
     </div>
+
+    <a href="mestre.php" class="sair subtitle">VOLTAR</a>
     
 </body>
 </html>
