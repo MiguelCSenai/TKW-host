@@ -219,14 +219,38 @@ include "../../mysqlconecta.php";
 
     </div>
 
+    <div class="personagem-wrapper">
+
+    <div class="efeitos-player">
+        <?php 
+            $queryEfeitosPlayer = "SELECT e.eft_id, e.eft_nome, inv.eft_duracao, e.eft_cor 
+                                FROM efeitos e
+                                JOIN inventario inv ON e.eft_id = inv.eft_id
+                                WHERE inv.pla_id = $player_id AND inv.eft_id IS NOT NULL AND inv.eft_duracao > 0";
+            $resEfeitosPlayer = mysqli_query($conexao, $queryEfeitosPlayer);
+
+            while ($efeitosPlayer = mysqli_fetch_assoc($resEfeitosPlayer)): ?>
+                <div class="icon-efeito white bold text" style="background-color: <?= $efeitosPlayer['eft_cor'] ?>">
+                    <div class="info">
+                        <span class="nome"><?= $efeitosPlayer['eft_nome'] ?></span>
+                        <span class="duracao"><?= $efeitosPlayer['eft_duracao'] . ($efeitosPlayer['eft_duracao'] != 1 ? " turnos" : " turno") ?></span>
+                    </div>
+                    <a href="retirar_efeito.php?efeito=<?= $efeitosPlayer['eft_id'] ?>&player=<?= $player_id ?>" class="excluir">Remover</a>
+                </div>  
+                                
+        <?php endwhile; ?>
+    </div>
+
+    <!-- Ficha do personagem -->
     <div class="container-personagem">
         <p class="subtitle bold bigT"><?php echo $player['pla_nome']; ?></p>
+
         <div class="xp-container">
             <?php
                 $xp = $player['pla_xp'];
                 $xpMax = 10 * $player['pla_lvl'];
                 $xpPercent = min(100, ($xp / $xpMax) * 100);
-                ?>
+            ?>
             <div class="xp-bar">
                 <div class="xp-fill" style="width: <?php echo $xpPercent; ?>%;"></div>
                 <div class="xp-text"><?php echo $xp; ?> / <?php echo $xpMax; ?> XP</div>
@@ -242,7 +266,8 @@ include "../../mysqlconecta.php";
                 "pla_HP" => "HP",
                 "pla_STR" => "FOR",
                 "pla_AGI" => "AGI",
-                "pla_INT" => "INT"
+                "pla_INT" => "INT",
+                "pla_EVA" => "EVA"
             ];
 
             foreach ($stats as $key => $atributo) {
@@ -251,8 +276,10 @@ include "../../mysqlconecta.php";
                     $max = $player['pla_Max_HP'];
                 } elseif ($key === 'pla_Max_HP') {
                     $max = 999;
-                }elseif($key === 'pla_STR' || $key === 'pla_INT'){
+                } elseif ($key === 'pla_STR' || $key === 'pla_INT') {
                     $max = 25;
+                } elseif ($key === 'pla_EVA') {
+                    $max = 15;
                 } else {
                     $max = 20;
                 }
@@ -267,21 +294,64 @@ include "../../mysqlconecta.php";
                 </div>
                 ";
             }
-            
             ?>
         </div>
 
         <a href="editar_stats.php?player_id=<?= $player_id ?>" class="editarStats subtitle bold">Editar Stats</a>
-
     </div>
+</div>
+
 
     <div class="container-efeitos">
 
+        <?php
         
+            $query_efeitos = "SELECT * FROM efeitos";
+            $result_efeitos = mysqli_query($conexao, $query_efeitos);
+
+            $efeitos = [];
+
+            while ($row = mysqli_fetch_assoc($result_efeitos)) {
+                $efeitos[] = $row;
+            }
+            
+        ?>
+
+        <div class="conteudo-efeitos">
+
+            <?php foreach ($efeitos as $efeito): ?>
+            
+                <div class="item-card whiteBC" onclick="abrirConfirmacao('<?= $efeito['eft_id'] ?>', '<?= addslashes($efeito['eft_nome']) ?>', '<?= addslashes($player['pla_nome']) ?>')" style="background-color: <?= $efeito['eft_cor'] ?>">
+
+
+                    <h3 class="text white bold"><?= $efeito['eft_nome'] ?></h3>
+                    <p class="text white"><?= $efeito['eft_descricao'] ?></p>
+
+                    <!--<h3 class="subtitle white bold">Duração: $efeito['eft_duracao'] . ($efeito['eft_duracao'] != 1 ? " turnos" : " turno")</h2>-->
+
+                </div>
+            <?php endforeach; ?>
+
+        </div>        
 
     </div>
 
     <a href="mestre.php" class="sair subtitle">VOLTAR</a>
+
+    <div id="modal-confirmacao" class="modal" style="display:none;">
+        <div class="modal-content whiteBC solid mediumBS">
+            <span id="modal-fechar" class="close">&times;</span>
+            <p id="modal-texto" class="subtitle bold"></p>
+            <input type="number" name="turnos" id="turnos">
+            <div class="button-container">
+
+                <button id="confirmar-btn" class="greenB bold text white">Confirmar</button>
+                <button id="cancelar-btn" class="redB bold text white">Cancelar</button>
+
+            </div>
+        </div>
+    </div>
+
     
 </body>
 </html>
@@ -352,4 +422,40 @@ function deletar(quanto, tipo, id) {
         console.error(error);
     });
 }
+</script>
+<script>
+function abrirConfirmacao(eft_id, efeitoNome, playerNome) {
+    const modal = document.getElementById("modal-confirmacao");
+    const texto = document.getElementById("modal-texto");
+    const confirmarBtn = document.getElementById("confirmar-btn");
+    const turnosInput = document.getElementById("turnos");
+
+    texto.innerHTML = `Deseja adicionar o efeito ${efeitoNome} ao jogador ${playerNome}?`;
+    modal.style.display = "flex";
+
+    confirmarBtn.onclick = function () {
+        const turnos = encodeURIComponent(turnosInput.value.trim());
+
+        fetch("adicionar_efeito.php", {
+            method: "POST",
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `pla_id=<?= $player_id ?>&eft_id=${eft_id}&turnos=${turnos}`
+        })
+        .then(response => response.text())
+        .then(data => {
+            if (data === 'ok') {
+                location.reload();
+            } else {
+                alert("Erro ao adicionar efeito: " + data);
+            }
+        });
+        modal.style.display = "none";
+    };
+}
+
+// Fecha o modal
+document.getElementById("modal-fechar").onclick =
+document.getElementById("cancelar-btn").onclick = function () {
+    document.getElementById("modal-confirmacao").style.display = "none";
+};
 </script>

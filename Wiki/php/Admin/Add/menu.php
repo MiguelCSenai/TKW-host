@@ -47,6 +47,7 @@
             <a href="addItem.php" class="items redBC solid mediumBS black bold text smallT"><img src="../../../resources/settings.png">Cadastrar item</a>
             <a href="addMonstro.php" class="items redBC solid mediumBS black bold text smallT"><img src="../../../resources/settings.png">Cadastrar monstro</a>
             <a href="addMagia.php" class="items redBC solid mediumBS black bold text smallT"><img src="../../../resources/settings.png">Cadastrar magia</a>
+            <a href="addClasse.php" class="items redBC solid mediumBS black bold text smallT"><img src="../../../resources/settings.png">Cadastrar classes</a>
 
         </div>
         

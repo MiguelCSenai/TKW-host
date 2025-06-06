@@ -42,6 +42,23 @@ if ($proximo === 'MESTRE') {
 
         mysqli_query($conexao, $queryUp);
     }
+}else{
+
+    $queryEfeito = "SELECT eft_id, eft_duracao FROM inventario WHERE pla_id = $proximo AND eft_id IS NOT NULL";
+    $resEfeito = mysqli_query($conexao, $queryEfeito);
+    
+
+    while ($efeito = mysqli_fetch_assoc($resEfeito)) {
+        
+        $updateEfeito = "UPDATE inventario SET eft_duracao = eft_duracao - 1 WHERE pla_id = $proximo AND eft_id IS NOT NULL AND eft_duracao > 0";
+        $deleteEfeito = "DELETE FROM inventario WHERE pla_id = $proximo AND eft_id IS NOT NULL AND eft_duracao <= 0";
+        mysqli_query($conexao, $updateEfeito);
+        mysqli_query($conexao, $deleteEfeito);
+
+    }
+
+
+
 }
 
 

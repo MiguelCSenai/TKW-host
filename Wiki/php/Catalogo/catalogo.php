@@ -146,10 +146,10 @@ if ($result->num_rows > 0) {
 </div>
 
 
-<h1 class="red subtitle mediumT SdarkRed">Efeitos</h1>
+<!--<h1 class="red subtitle mediumT SdarkRed">Efeitos</h1>
 <div class="container-efeitos">
 <?php
-
+/*
 $query = "SELECT eft_nome, eft_dpt, eft_ignoraArmadura, eft_incapacitar, eft_nerfDano, eft_nerfAgi, eft_buffDano, eft_buffAgi, eft_cura FROM efeitos ORDER BY eft_nome";
 $result = $conexao->query($query);
 
@@ -184,10 +184,10 @@ if ($result->num_rows > 0) {
 } else {
     echo "<p>Nenhum efeito cadastrado.</p>";
 }
-?>
+*/?>
 
 
-</div>
+</div>-->
 
 <h1 class="red subtitle mediumT SdarkRed">Monstros</h1>
 <div class="container-armas">

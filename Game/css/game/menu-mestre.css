@@ -39,7 +39,7 @@ a{
 
 .button-container {
     display: flex;
-    gap: 3vw;
+    justify-content: space-around;
 }
 
 .icon-button {
@@ -68,6 +68,7 @@ a{
     right: 2vw;
     display: flex;
     flex-direction: column;
+    width: 25vw;
     gap: 5vh;
   
 }

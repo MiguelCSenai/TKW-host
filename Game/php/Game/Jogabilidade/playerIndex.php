@@ -30,6 +30,7 @@ if (isset($_SESSION['player_id'])) {
 
     <div class="container-personagem">
         <div class="img">
+            <p class="smallT subtitle bold"><?= $player['pla_classe']; ?></p>  
             <div class="level-container"><?php echo $player['pla_lvl']; ?></div>
         </div>
         <p class="subtitle bold mediumT"><?php echo $player['pla_nome']; ?></p>
@@ -70,7 +71,8 @@ if (isset($_SESSION['player_id'])) {
                 "pla_HP" => "HP",
                 "pla_STR" => "FOR",
                 "pla_AGI" => "AGI",
-                "pla_INT" => "INT"
+                "pla_INT" => "INT",
+                "pla_EVA" => "EVA"
             ];
 
             foreach ($stats as $key => $atributo) {
@@ -81,6 +83,8 @@ if (isset($_SESSION['player_id'])) {
                     $max = 999;
                 }elseif($key === 'pla_STR' || $key === 'pla_INT'){
                     $max = 25;
+                }elseif($key === 'pla_EVA'){
+                    $max = 15;
                 } else {
                     $max = 20;
                 }

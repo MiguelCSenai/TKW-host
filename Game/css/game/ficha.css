@@ -40,17 +40,17 @@ p{
 
 .img{
 
-    aspect-ratio: 1/1;
-    width: 33vw;
-
+    aspect-ratio: 2/1;
+    height: 33vw;
     max-width: 200px;
     border: 3px black solid;
     border-radius: 10px;
     display: flex;
-    justify-content: end;
-    align-items: end;
+    justify-content: center;
+    align-items: center;
     font-weight: bold;
     box-sizing: border-box;
+    position: relative;
 
 }
 
@@ -110,9 +110,9 @@ strong{
 }
 
 .level-container {
-    top: 2.5vh;
-    left: 2.5vh;
-    position: relative;
+    bottom: -15px;
+    right: -15px;
+    position: absolute;
     background: gold;
     border-radius: 50%;
     width: 35px;

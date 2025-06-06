@@ -3,10 +3,10 @@ session_start();
 include "../mysqlconecta.php";
 
 $atributos = [
-    'Guerreiro' => ['HP' => 40, 'STR' => 9, 'AGI' => 11, 'INT' => 6],
-    'Mago' => ['HP' => 20, 'STR' => 5, 'AGI' => 8, 'INT' => 12],
-    'Armadilheiro' => ['HP' => 15, 'STR' => 3, 'AGI' => 14, 'INT' => 11],
-    'Arqueiro' => ['HP' => 30, 'STR' => 7, 'AGI' => 13, 'INT' => 9],
+    'Desertor' => ['HP' => 40, 'STR' => 9, 'AGI' => 8, 'INT' => 6, 'EVA' => 7],
+    'Conjurador' => ['HP' => 20, 'STR' => 5, 'AGI' => 5, 'INT' => 12, 'EVA' => 5],
+    'Bobo da Corte' => ['HP' => 15, 'STR' => 3, 'AGI' => 11, 'INT' => 11, 'EVA' => 3],
+    'Caçador' => ['HP' => 30, 'STR' => 7, 'AGI' => 10, 'INT' => 9, 'EVA' => 3],
 ];
 
 $classe = $_POST['classeP'];
@@ -58,8 +58,8 @@ $row_posicao = mysqli_fetch_assoc($result_posicao);
 $posicao = $row_posicao['total'];
 
 
-$query = "INSERT INTO players (pla_nome, pla_classe, pla_reino, pla_HP, pla_STR, pla_AGI, pla_INT, pla_ses_id)
-          VALUES ('$nome', '$classe', '$reino', {$stats['HP']}, {$stats['STR']}, {$stats['AGI']}, {$stats['INT']}, '$ses_id')";
+$query = "INSERT INTO players (pla_nome, pla_classe, pla_reino, pla_HP, pla_STR, pla_AGI, pla_INT, pla_EVA, pla_ses_id)
+          VALUES ('$nome', '$classe', '$reino', {$stats['HP']}, {$stats['STR']}, {$stats['AGI']}, {$stats['INT']}, {$stats['EVA']}, '$ses_id')";
 
 if (mysqli_query($conexao, $query)) {
     $player_id = mysqli_insert_id($conexao);

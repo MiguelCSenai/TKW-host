@@ -16,17 +16,11 @@ if (!$conexao) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
     $nome = $_POST['nome'];
-    $dpt = isset($_POST['dpt']) && $_POST['dpt'] !== '' ? (int)$_POST['dpt'] : "NULL";
-    $ignArm = isset($_POST['ignArm']) && $_POST['ignArm'] !== '' ? (int)$_POST['ignArm'] : "NULL";
-    $off = isset($_POST['off']) && $_POST['off'] !== '' ? (int)$_POST['off'] : "NULL";
-    $nerfDano = isset($_POST['danoNerf']) && $_POST['danoNerf'] !== '' ? (float)$_POST['danoNerf'] : "NULL";
-    $nerfAgi = isset($_POST['agiNerf']) && $_POST['agiNerf'] !== '' ? (float)$_POST['agiNerf'] : "NULL";
-    $buffDano = isset($_POST['danoBuff']) && $_POST['danoBuff'] !== '' ? (float)$_POST['danoBuff'] : "NULL";
-    $buffAgi = isset($_POST['agiBuff']) && $_POST['agiBuff'] !== '' ? (float)$_POST['agiBuff'] : "NULL";
-    $cura = isset($_POST['cura']) && $_POST['cura'] !== '' ? (int)$_POST['cura'] : "NULL";
+    $desc = $_POST['desc'];
+    $cor = $_POST['cor'];
     
-    $query = "INSERT INTO efeitos (eft_nome, eft_dpt, eft_ignoraArmadura, eft_incapacitar, eft_nerfDano, eft_nerfAgi, eft_buffDano, eft_buffAgi, eft_cura) 
-                VALUES ('$nome', '$dpt', '$ignArm', '$off', $nerfDano, $nerfAgi, $buffDano, '$buffAgi', '$cura')";
+    $query = "INSERT INTO efeitos (eft_nome, eft_descricao, eft_cor) 
+                VALUES ('$nome', '$desc', '$cor')";
     
     if (mysqli_query($conexao, $query)) {
         header("Location: addEfeito.php");
@@ -92,38 +86,12 @@ $conexao->close();
                 <input type="text" id="nome" name="nome" required>
             </div>
             <div class="form-group">
-                <label for="dpt">Dano por turno:</label>
-                <input type="number" id="dpt" name="dpt" min="1" max="5" placeholder="1 - 5">
-            </div>
-
-            <div class="form-group">
-                <label for="ignArm">Atravessa armadura:</label>
-                <input type="number" id="ignArm" name="ignArm" min="1" max="3" placeholder="1 - 3">
-            </div>
-
-            <div class="form-group">
-                <label for="off">Incapacitar:</label>
-                <input type="number" id="off" name="off" min="1" max="2" placeholder="1 - 2">
+                <label for="nome">Descrição:</label>
+                <input type="text" id="desc" name="desc" required>
             </div>
             <div class="form-group">
-                <label for="danoNerf">Nerf de Dano:</label>
-                <input type="number" id="danoNerf" name="danoNerf" min="0.1" max="1" step="0.1" placeholder="0.1 - 1">
-            </div>
-            <div class="form-group">
-                <label for="agiNerf">Nerf de Agilidade:</label>
-                <input type="number" id="agiNerf" name="agiNerf" min="0.1" max="1" step="0.1" placeholder="0.1 - 1">
-            </div>
-            <div class="form-group">
-                <label for="danoBuff">Buff de Dano:</label>
-                <input type="number" id="danoBuff" name="danoBuff" min="0.1" max="1" step="0.1" placeholder="0.1 - 1">
-            </div>
-            <div class="form-group">
-                <label for="agiBuff">Buff de Agilidade:</label>
-                <input type="number" id="agiBuff" name="agiBuff" min="0.1" max="1" step="0.1" placeholder="0.1 - 1">
-            </div>
-            <div class="form-group">
-                <label for="cura">Cura:</label>
-                <input type="number" id="cura" name="cura" min="1" max="10" placeholder="1 - 10">
+                <label for="nome">Cor:</label>
+                <input type="color" name="cor" id="cor">
             </div>
             <button type="submit">Adicionar Efeito</button>
         </form>

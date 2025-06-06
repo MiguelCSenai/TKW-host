@@ -17,7 +17,7 @@ include "../../mysqlconecta.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Status Players</title>
+    <title>Players</title>
     <link rel="stylesheet" href="../../../css/general/fonts.css">
     <link rel="stylesheet" href="../../../css/game/elements/components.css">
     <link rel="stylesheet" href="../../../css/game/elements/animations.css">
@@ -75,7 +75,7 @@ include "../../mysqlconecta.php";
 
     function ver(id){
 
-        window.location.href = "examinar_player.php?id=" + id;
+        window.location.href = "bau.php?id=" + id;
 
     }
 

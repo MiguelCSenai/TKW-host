@@ -72,14 +72,11 @@ if ($turno_atual !== null) {
     <div class="container">
 
         <div class="button-container">
-            <div class="icon-button" id="armadilhas">
-                <img src="../../../resources/img/armadilha.png" alt="Armadilhas" class="icon-img">
-            </div>
             <div class="icon-button" id="monstros">
                 <img src="../../../resources/img/monstros.png" alt="Monstros" class="icon-img">
             </div>
             <div class="icon-button" id="trocar">
-                <img src="../../../resources/img/trocar.png" alt="Trocar" class="icon-img">
+                <img src="../../../resources/img/bau.png" alt="Trocar" class="icon-img">
             </div>
         </div>
 
@@ -120,14 +117,11 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function() {
             const buttonId = this.id;
             switch (buttonId) {
-                case 'armadilhas':
-                    window.location.href = 'armadilhas.php';
-                    break;
                 case 'monstros':
                     window.location.href = 'monstros.php';
                     break;
                 case 'trocar':
-                    window.location.href = 'trocar.php';
+                    window.location.href = 'player_bau.php';
                     break;
             }
         });

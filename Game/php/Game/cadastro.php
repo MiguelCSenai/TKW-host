@@ -43,7 +43,6 @@
                 <button type="button" id="prev-btn">◀</button>
                 
                 <div class="slider-content">
-                    <img id="classe-img" alt="Classe" />
                     <div id="classe-display"></div>
                 </div>
 
