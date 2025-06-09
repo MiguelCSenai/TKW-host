@@ -221,7 +221,7 @@ if (mysqli_num_rows($result) > 0) {
 
     echo "<div class='nome subtitle mediumT'>" . $row["mon_nome"] . "</div>";
 
-    echo "<img src='" . $row["mon_icone"] . "' alt='" . $row["mon_nome"] . "' class='imagem'>";
+    //echo "<img src='" . $row["mon_icone"] . "' alt='" . $row["mon_nome"] . "' class='imagem'>";
 
     echo "<div class='descricao text'><strong>Natureza:</strong> " . $row["mon_natureza"] . "</div>";
 
