@@ -124,7 +124,7 @@ $mestre = mysqli_fetch_array($result_mestre);
         <div class="conteudo-mercado">
             <?php
 
-                $query = "SELECT * FROM monstros ORDER BY mon_natureza, mon_nome, mon_valor";
+                $query = "SELECT * FROM monstros ORDER BY mon_valor, mon_nome";
                 $result = mysqli_query($conexao, $query);
 
                 if (mysqli_num_rows($result) > 0) {
@@ -154,7 +154,7 @@ $mestre = mysqli_fetch_array($result_mestre);
 
                     echo "<div class='nome subtitle mediumT'>" . $row["mon_nome"] . "</div>";
 
-                    echo "<img src='" . $row["mon_icone"] . "' alt='" . $row["mon_nome"] . "' class='imagem'>";
+                    //echo "<img src='" . $row["mon_icone"] . "' alt='" . $row["mon_nome"] . "' class='imagem'>";
 
                     echo "<div class='atributos text'>";
 

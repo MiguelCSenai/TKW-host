@@ -35,9 +35,9 @@ if ($proximo === 'MESTRE') {
         $mes_turnos = $mestre['mes_turnos'];
 
         if ($mes_turnos >= 4) {
-            $queryUp = "UPDATE mestre SET mes_lvl = mes_lvl + 1, mes_turnos = 0, mes_creditos = mes_creditos + (mes_lvl * 2) WHERE mes_id = $mes_id";
+            $queryUp = "UPDATE mestre SET mes_lvl = mes_lvl + 1, mes_turnos = 0, mes_creditos = mes_creditos + (mes_lvl * 5 + 5) WHERE mes_id = $mes_id";
         } else {
-            $queryUp = "UPDATE mestre SET mes_turnos = mes_turnos + 1, mes_creditos = mes_creditos + 1 WHERE mes_id = $mes_id";
+            $queryUp = "UPDATE mestre SET mes_turnos = mes_turnos + 1, mes_creditos = mes_creditos + 5 WHERE mes_id = $mes_id";
         }
 
         mysqli_query($conexao, $queryUp);
@@ -63,7 +63,9 @@ if ($proximo === 'MESTRE') {
 
 
 
-mysqli_query($conexao, "UPDATE turnos SET tur_atual = '$proximo' WHERE tur_ses_id = $sessao");
+mysqli_query($conexao, "UPDATE turnos 
+                        SET tur_atual = '$proximo' 
+                        WHERE tur_ses_id = $sessao");
 
 header("Location: mestre.php");
 exit;

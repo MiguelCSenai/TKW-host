@@ -19,7 +19,10 @@ if (isset($_GET["player"]) && !isset($_SESSION['ses_id'])) {
     $ses_id = (int) $_SESSION['ses_id'];
 }
 
-$query = "SELECT pla_nome, pla_classe, pla_reino FROM players WHERE pla_ses_id = $ses_id ORDER BY pla_reino, pla_nome";
+$query = "SELECT pla_nome, pla_classe, pla_reino 
+          FROM players 
+          WHERE pla_ses_id = $ses_id 
+          ORDER BY pla_reino, pla_nome";
 $result = mysqli_query($conexao, $query);
 
 $reino1 = [];
@@ -104,10 +107,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }, { once: true });
     });//tocar musiquinha:)
 
-    function atualizarContagem() {//mostra quantos faltam👌, e se tiver cheio libera pra iniciar
+    function atualizarContagem() {
         fetch('contagem.php')
             .then(response => response.json())
-            .then(data => {//esse 'data' vai ser oq a gente vai usar pra exibir as info, pensa nele como uma variavel ultra pro max fds
+            .then(data => {
                 const statusDiv = document.getElementById('status');
                 if (data.players < data.total) {
                     statusDiv.innerHTML = `<h2 class="subtitle">${data.players}/${data.total} Jogadores Cadastrados</h2>`;
@@ -117,9 +120,9 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-    function atualizarJogadores() {//faz a listinha de jogadores em cada reino
-        fetch('players.php')//o select é feito aqui, e esse bglh retorna um json
-            .then(response => response.json())//le o json
+    function atualizarJogadores() {
+        fetch('players.php')
+            .then(response => response.json())
             .then(data => {
                 const reino1 = document.getElementById('reino1');
                 const reino2 = document.getElementById('reino2');
@@ -129,15 +132,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const totalJogadores = <?php echo $play_num; ?>;
 
-                for (let i = 0; i < totalJogadores; i++) {                                            //*ELEMENTO PIKA ALIAS, LEMBRAR PRA USAR MAIS*
-                    if (data.reino1[i]) {//aqui ele vai adicionando as divs de cada player, pra dps ser exibido dentro de cada reino(.innerHTML)☝️
+                for (let i = 0; i < totalJogadores; i++) {                                           
+                    if (data.reino1[i]) {
                         htmlReino1 += `<div class="mini-container text"><span class="bold">${data.reino1[i].pla_nome}</span> | ${data.reino1[i].pla_classe}</div>`;
                     } else {
-                        htmlReino1 += `<div class="mini-container text">Jogador ${i + 1}</div>`;//se ainda não tiver player pra ocupar o lugar tem
-                    }                                                                           //esse bglh presetado
+                        htmlReino1 += `<div class="mini-container text">Jogador ${i + 1}</div>`;
+                    }                                                                           
                 }
 
-                for (let i = 0; i < totalJogadores; i++) {//mema brisa aqui só q no outro time
+                for (let i = 0; i < totalJogadores; i++) {
                     if (data.reino2[i]) {
                         htmlReino2 += `<div class="mini-container text"><span class="bold">${data.reino2[i].pla_nome}</span> | ${data.reino2[i].pla_classe}</div>`;
                     } else {
@@ -145,13 +148,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
 
-                //preenche os bglh
+                
                 reino1.innerHTML = htmlReino1;
                 reino2.innerHTML = htmlReino2;
             });
     }
 
-    setInterval(() => {//a cada 2s ele roda os bglh acima pra atualizar as info da pag
+    setInterval(() => {
         atualizarContagem();
         atualizarJogadores();
     }, 2000);

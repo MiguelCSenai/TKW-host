@@ -21,19 +21,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         isset($_POST['STR']) &&
         isset($_POST['AGI']) &&
         isset($_POST['INT']) &&
-        isset($_POST['xp'])
-    ) {    
+        isset($_POST['xp']) &&
+        isset($_POST['EVA'])
+    ){    
         $nome = $_POST['nome'];
         $natureza = $_POST['natureza'];
         $HP = (int) $_POST['HP'];
         $STR = (int) $_POST['STR'];
         $AGI = (int) $_POST['AGI'];
         $INT = (int) $_POST['INT'];
+        $EVA = (int) $_POST['EVA'];
         $xp = (int) $_POST['xp'];
         $icone = !empty($_POST['icone']) ? $_POST['icone'] : NULL;
 
-        $query = "INSERT INTO monstros (mon_nome, mon_natureza, mon_HP, mon_STR, mon_AGI, mon_INT, mon_xp, mon_icone) 
-          VALUES ('$nome', '$natureza', $HP, $STR, $AGI, $INT, $xp, " . ($icone ? "'$icone'" : "NULL") . ")";
+        $query = "INSERT INTO monstros (mon_nome, mon_natureza, mon_HP, mon_STR, mon_AGI, mon_INT, mon_EVA, mon_xp, mon_icone) 
+                  VALUES ('$nome', '$natureza', $HP, $STR, $AGI, $INT, $EVA, $xp, " . ($icone ? "'$icone'" : "NULL") . ")";
+
         
         if (mysqli_query($conexao, $query)) {
             header("Location: addMonstro.php");
@@ -110,6 +113,10 @@ $conexao->close();
         <div class="form-group">
             <label for="INT">Inteligência (INT):</label>
             <input type="number" id="INT" name="INT" min="0" required>
+        </div>
+        <div class="form-group">
+            <label for="EVA">Evasão (EVA):</label>
+            <input type="number" id="EVA" name="EVA" min="0" required>
         </div>
         <div class="form-group">
             <label for="xp">XP Concedido:</label>

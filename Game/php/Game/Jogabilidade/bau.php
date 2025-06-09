@@ -18,7 +18,7 @@ include "../../mysqlconecta.php";
 
     <div class="bau">
 
-        <button class="subtitle mediumT hobbit">Gerar loot</button>
+        <button onclick="gerar()" class="subtitle mediumT hobbit">Gerar loot</button>
 
     </div>
 

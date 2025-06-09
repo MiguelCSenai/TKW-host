@@ -35,7 +35,7 @@
     <?php
     include "../mysqlconecta.php";
 
-    $query = "SELECT wpn_id, wpn_nome, wpn_tipo, wpn_natureza, wpn_efeito, wpn_dano, wpn_velocidade, wpn_alcance, wpn_descricao, wpn_icone FROM armas ORDER BY wpn_tipo";
+    $query = "SELECT * FROM armas ORDER BY wpn_tipo";
     $result = $conexao->query($query);
 
     if ($result->num_rows > 0) {

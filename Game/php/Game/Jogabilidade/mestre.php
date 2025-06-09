@@ -52,7 +52,6 @@ if ($turno_atual !== null) {
         <div class="menu-items">
 
             <a href="status_player.php" class="subtitle mediumT bold red SdarkRed">Status players</a>
-            <a href="status_monstros.php" class="subtitle mediumT bold red SdarkRed">Status monstros</a>
             <a href="alterar_turnos.php" class="subtitle mediumT bold red SdarkRed">Definir turnos</a>
 
         </div>
@@ -74,9 +73,6 @@ if ($turno_atual !== null) {
         <div class="button-container">
             <div class="icon-button" id="monstros">
                 <img src="../../../resources/img/monstros.png" alt="Monstros" class="icon-img">
-            </div>
-            <div class="icon-button" id="trocar">
-                <img src="../../../resources/img/bau.png" alt="Trocar" class="icon-img">
             </div>
         </div>
 

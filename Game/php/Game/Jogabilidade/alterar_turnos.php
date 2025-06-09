@@ -58,6 +58,7 @@ function nomeTurno($id) {
 
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
 <script>
+    
     const ul = document.getElementById('ordem');
 
     Sortable.create(ul, {
@@ -71,6 +72,7 @@ function nomeTurno($id) {
         }
     });
 
+    
     document.querySelector('form').addEventListener('submit', function(e) {
         const ids = Array.from(ul.children).map(li => li.dataset.id);
         document.getElementById('nova_ordem').value = JSON.stringify(ids);

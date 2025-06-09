@@ -321,13 +321,14 @@ include "../../mysqlconecta.php";
 
             <?php foreach ($efeitos as $efeito): ?>
             
-                <div class="item-card whiteBC" onclick="abrirConfirmacao('<?= $efeito['eft_id'] ?>', '<?= addslashes($efeito['eft_nome']) ?>', '<?= addslashes($player['pla_nome']) ?>')" style="background-color: <?= $efeito['eft_cor'] ?>">
+                <div class="item-card whiteBC" onclick="abrirConfirmacao('<?= $efeito['eft_id'] ?>',
+                                                                         '<?= addslashes($efeito['eft_nome']) ?>',
+                                                                         '<?= addslashes($player['pla_nome']) ?>')"
+                                                                         style="background-color: <?= $efeito['eft_cor'] ?>">
 
 
                     <h3 class="text white bold"><?= $efeito['eft_nome'] ?></h3>
                     <p class="text white"><?= $efeito['eft_descricao'] ?></p>
-
-                    <!--<h3 class="subtitle white bold">Duração: $efeito['eft_duracao'] . ($efeito['eft_duracao'] != 1 ? " turnos" : " turno")</h2>-->
 
                 </div>
             <?php endforeach; ?>

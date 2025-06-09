@@ -1,6 +1,5 @@
 <?php
 session_start();
-$limite = $_SESSION['play_num'];
 include "../mysqlconecta.php";
 
 require __DIR__ . '/vendor/autoload.php';
