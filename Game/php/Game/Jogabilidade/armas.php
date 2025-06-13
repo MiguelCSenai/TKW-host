@@ -62,16 +62,16 @@ while ($row = mysqli_fetch_assoc($result)) {
             ?>
             <div class="<?= $classe ?> solid mediumBS arma text">
                 <div class="icon">
-                    <img class="<?= $classeImg ?>" src="<?= $arma['wpn_icone'] ?>" alt="<?= $arma['wpn_nome'] ?>">
+                    <!--<img class="<?= $classeImg ?>" src="<?= $arma['wpn_icone'] ?>" alt="<?= $arma['wpn_nome'] ?>">-->
                     <h2><?= $arma['wpn_nome'] ?></h2>
                 </div>
                 <div class="content">
                     <div class="stats">
                         <p><strong class="subtitle">Tipo:</strong> <?= $arma['wpn_tipo'] ?></p>
-                        <p><strong class="subtitle">Natureza:</strong> <?= $arma['wpn_natureza'] ?></p>
+                        <!--<p><strong class="subtitle">Natureza:</strong> <?= $arma['wpn_natureza'] ?></p>-->
                         <p><strong class="subtitle">Efeito:</strong> <?= $arma['wpn_efeito'] ?></p>
 
-                        <div class="dano">
+                        <!--<div class="dano">
                             <strong class="subtitle">Dano:</strong>
                             <div class="stat-bar">
                                 <span class="stat-num"><?= min($arma['wpn_dano'], 10) ?> / 10</span>
@@ -93,7 +93,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                                 <span class="stat-num"><?= min($arma['wpn_alcance'], 10) ?> / 10</span>
                                 <div class="stat-fill" style="width: <?= min($arma['wpn_alcance'], 10) * 10 ?>%"></div>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
