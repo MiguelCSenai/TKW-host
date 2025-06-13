@@ -193,7 +193,7 @@ body {
     height: 100%;
     gap: 10px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     overflow-y: auto;
     padding-right: 1.5vw;
 }
@@ -585,7 +585,7 @@ strong{
     gap: 2vw;
     margin-top: 3vh;
     padding-inline: 20px;
-    padding-top: 30px;
+    padding-block: 30px;
     box-sizing: border-box;
     text-align: center;
     border-radius: 2vh;
@@ -636,11 +636,12 @@ justify-content: space-between;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    gap: 10px;
 
 }
 
 .stat-bar-arma {
-    width: 60%;
+    width: 80%;
     height: 3vh;
     background-color: #cccccc8f;
     border-radius: 5px;
@@ -718,7 +719,6 @@ justify-content: space-between;
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: rgb(203, 47, 47);
 
 }
 

@@ -142,16 +142,14 @@ include "../../mysqlconecta.php";
                         ?>
                         <div class="<?= $classe ?> solid mediumBS arma text">
                             <div class="icon">
-                                <img class="<?= $classeImg ?>" src="<?= $arma['wpn_icone'] ?>" alt="<?= $arma['wpn_nome'] ?>">
                                 <h2><?= $arma['wpn_nome'] ?></h2>
                             </div>
                             <div class="content">
                                 <div class="stats-arma">
                                     <p><strong class="subtitle">Tipo:</strong> <?= $arma['wpn_tipo'] ?></p>
-                                    <p><strong class="subtitle">Natureza:</strong> <?= $arma['wpn_natureza'] ?></p>
                                     <p><strong class="subtitle">Efeito:</strong> <?= $arma['wpn_efeito'] ?></p>
 
-                                    <div class="stat-group-arma">
+                                    <!--<div class="stat-group-arma">
                                         <strong class="subtitle">Dano:</strong>
                                         <div class="stat-bar-arma">
                                             <span class="stat-num-arma"><?= min($arma['wpn_dano'], 10) ?> / 10</span>
@@ -173,7 +171,7 @@ include "../../mysqlconecta.php";
                                             <span class="stat-num-arma"><?= min($arma['wpn_alcance'], 10) ?> / 10</span>
                                             <div class="stat-fill-arma" style="width: <?= min($arma['wpn_alcance'], 10) * 10 ?>%"></div>
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <button class="white bold text" onclick="deletar('um', 'arma', <?= $arma['wpn_id'] ?>)">Remover</button>
                                 </div>
                             </div>

@@ -76,6 +76,12 @@ if ($turno_atual !== null) {
             </div>
         </div>
 
+        <div class="button-container">
+            <div class="icon-button" id="items">
+                <img src="../../../resources/img/bau.png" alt="Monstros" class="icon-img">
+            </div>
+        </div>
+
         <div class="perfil largeBS redBC solid">
             <?php if ($mestre): ?>
                 <div class="info-mestre text">
@@ -116,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 case 'monstros':
                     window.location.href = 'monstros.php';
                     break;
-                case 'trocar':
+                case 'items':
                     window.location.href = 'player_bau.php';
                     break;
             }
